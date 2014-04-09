@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jamod-1.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/src/main/java/libs/jamod-1.2-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
