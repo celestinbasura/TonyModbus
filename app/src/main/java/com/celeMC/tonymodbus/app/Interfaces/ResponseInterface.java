@@ -1,4 +1,4 @@
-package com.celeMC.tonymodbus.app.ModBusConnect.Interfaces;
+package com.celeMC.tonymodbus.app.Interfaces;
 
 /**
  * Created by Celestin on 9.4.2014..

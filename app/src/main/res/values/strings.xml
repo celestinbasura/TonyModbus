@@ -9,5 +9,8 @@
     <string name="exterior">Exterior</string>
     <string name="groups">Groups</string>
     <string name="action_connect">Connect</string>
+    <string name="title_activity_interior_point">InteriorPointActivity</string>
+    <string name="title_activity_exterior_point">ExteriorPointActivity</string>
+    <string name="title_activity_group_point">GroupPointActivity</string>
 
 </resources>

@@ -1,9 +1,7 @@
-package com.celeMC.tonymodbus.app.ModBusConnect;
+package com.celeMC.tonymodbus.app.Threads;
 
 import android.content.Context;
-import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import net.wimpi.modbus.io.ModbusTCPTransaction;
 import net.wimpi.modbus.msg.ReadInputDiscretesRequest;
@@ -42,13 +40,11 @@ public class ConnecterThread implements  Runnable{
     this.modbusPort = port;
 
 }
-   public ConnecterThread(){
-        super();
-    }
+
 
     @Override
     public void run() {
-        System.out.println("inititared run");
+        System.out.println("initiated run");
         InetAddress modbusServerIP = null;
         try {
             modbusServerIP = InetAddress.getByName(hostIP);
@@ -56,23 +52,31 @@ public class ConnecterThread implements  Runnable{
             e.printStackTrace();
         }
         con = new TCPMasterConnection(modbusServerIP);
+
         con.setPort(modbusPort);
+        con.setTimeout(03720);
+
         Log.d("cele", "starting conn");
+
+
         try {
+            Log.d("cele", "trying");
             con.connect();
+            Log.d("cele", "tried");
+
         } catch (Exception e1) {
             e1.printStackTrace();
         }
         if (con.isConnected()) {
-            Looper.prepare();
-            Toast.makeText(ctx, "Connected to " + hostIP, Toast.LENGTH_LONG).show();
-            Looper.loop();
+
             Log.d("cele", "commected");
+
         } else {
-            Toast.makeText(ctx, "Failed to connect to " + hostIP, Toast.LENGTH_LONG).show();
+
+            Log.d("cele", "not connected");
         }
 
-        // socket = new Socket(modbusServerIP, modbusPort);
+
 
 
 
@@ -82,41 +86,6 @@ public class ConnecterThread implements  Runnable{
     };
     }
 
-
-
-
-              /*  System.out.println("inititared run");
-                InetAddress modbusServerIP = null;
-                try {
-                    modbusServerIP = InetAddress.getByName(hostIP);
-                } catch (UnknownHostException e) {
-                    e.printStackTrace();
-                }
-                con = new TCPMasterConnection(modbusServerIP);
-                con.setPort(modbusPort);
-                Log.d("cele", "starting conn");
-                try {
-                    con.connect();
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-                if (con.isConnected()) {
-
-                    Toast.makeText(ctx, "Connected to " + hostIP, Toast.LENGTH_LONG).show();
-
-                    Log.d("cele", "commected");
-                } else {
-                    Toast.makeText(ctx, "Failed to connect to " + hostIP, Toast.LENGTH_LONG).show();
-                }
-
-                // socket = new Socket(modbusServerIP, modbusPort);
-
-
-
-
-
-
-        };*/
 
 
 

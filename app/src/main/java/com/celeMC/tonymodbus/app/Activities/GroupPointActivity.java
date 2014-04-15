@@ -1,33 +1,21 @@
-package com.celeMC.tonymodbus.app;
+package com.celeMC.tonymodbus.app.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.celeMC.tonymodbus.app.ModBusConnect.ConnecterThread;
+import com.celeMC.tonymodbus.app.R;
 
-public class MainActivity extends Activity {
 
+public class GroupPointActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        TextView txtStatus;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        txtStatus = (TextView)findViewById(R.id.txt_connstatus);
-        txtStatus.setText("smeme");
-        final ConnecterThread cnn = new ConnecterThread(this.getBaseContext() ,"192.168.197.1" ,5020);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                cnn.run();
-            }
-        }).start();
-
-
+        setContentView(R.layout.activity_group_point);
+        Toast.makeText(this.getBaseContext(), "TODO read to list", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -36,7 +24,7 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.group_point, menu);
         return true;
     }
 
@@ -47,7 +35,6 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-
             return true;
         }
         return super.onOptionsItemSelected(item);
