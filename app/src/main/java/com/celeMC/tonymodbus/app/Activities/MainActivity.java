@@ -34,8 +34,8 @@ public class MainActivity extends Activity {
         btnInteroir = (Button) findViewById(R.id.btn_interior);
         btnExteroir = (Button) findViewById(R.id.btn_exterior);
         btnGroups = (Button) findViewById(R.id.btn_groups);
-        txtStatus.setText("smeme");
-        final ConnecterThread cnn = new ConnecterThread(this.getBaseContext() ,"192.168.1.37" ,5020);
+        txtStatus.setText("Connection status");
+        final ConnecterThread cnn = new ConnecterThread(this.getBaseContext() ,"192.168.197.1" ,5020);
 
         new Thread(new Runnable() {
             @Override

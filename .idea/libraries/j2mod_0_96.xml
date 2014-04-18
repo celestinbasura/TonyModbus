@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="j2mod-0.96">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/src/main/java/libs/j2mod-0.96.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
