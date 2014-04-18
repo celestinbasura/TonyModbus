@@ -81,7 +81,7 @@ public class ConnecterThread implements  Runnable{
         }
 
 
-       
+
         Log.d("cele", "closed");
 
 
