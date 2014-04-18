@@ -12,5 +12,8 @@
     <string name="title_activity_interior_point">InteriorPointActivity</string>
     <string name="title_activity_exterior_point">ExteriorPointActivity</string>
     <string name="title_activity_group_point">GroupPointActivity</string>
+    <string name="tgl_btn">Toggle</string>
+    <string name="title_activity_list_activity_test">ListActivityTest</string>
+    <string name="title_activity_list_activity_new">ListActivityNew</string>
 
 </resources>

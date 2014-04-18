@@ -6,27 +6,27 @@
     tools:context=".MainActivity" >
 
     <TextView
-        android:id="@+id/txtpointName"
+        android:id="@+id/txt_pointname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="User Name"
+        android:text="Point Name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/txtPointAddress"
+        android:id="@+id/txt_pointaddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtpointName"
+        android:layout_below="@+id/txt_pointname"
         android:layout_marginTop="5dp"
         android:text="Address"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/btnTurnOn"
+        android:id="@+id/btn_activate"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
@@ -34,29 +34,31 @@
         android:background="#FFFFFF"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="Edit Data"
+        android:text="@string/tgl_btn"
         android:textColor="#0099CC" />
 
     <Button
-        android:id="@+id/btnTurnOff"
+        android:id="@+id/btn_timer"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/btnTurnOn"
+        android:layout_below="@+id/btn_activate"
         android:layout_marginTop="3dp"
         android:background="#FFFFFF"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="Delete"
+        android:text="Timer"
         android:textColor="#0099CC" />
 
     <TextView
-        android:id="@+id/txtCurrentState"
+        android:id="@+id/txt_timervalue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtPointAddress"
+        android:layout_below="@+id/txt_pointaddress"
         android:layout_marginTop="5dp"
-        android:text="Location" />
+        android:text="timer value" />
 
 </RelativeLayout>
+
+

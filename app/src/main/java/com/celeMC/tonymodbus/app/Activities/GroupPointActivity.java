@@ -15,7 +15,7 @@ public class GroupPointActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_point);
-        Toast.makeText(this.getBaseContext(), "TODO read to list", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this.getBaseContext(), "TODO read to list", Toast.LENGTH_SHORT).show();
 
     }
 

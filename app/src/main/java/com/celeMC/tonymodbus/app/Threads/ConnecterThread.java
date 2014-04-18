@@ -18,6 +18,7 @@ import java.net.UnknownHostException;
  * Created by Celestin on 9.4.2014..
  */
 public class ConnecterThread implements  Runnable{
+
     Context ctx;
     Socket socket;
     String hostIP = "192.168.197.1";
@@ -67,6 +68,9 @@ public class ConnecterThread implements  Runnable{
         } catch (Exception e1) {
             e1.printStackTrace();
         }
+
+
+
         if (con.isConnected()) {
 
             Log.d("cele", "commected");
@@ -77,7 +81,8 @@ public class ConnecterThread implements  Runnable{
         }
 
 
-
+       
+        Log.d("cele", "closed");
 
 
 

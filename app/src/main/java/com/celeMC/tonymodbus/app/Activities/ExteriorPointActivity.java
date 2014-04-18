@@ -17,7 +17,7 @@ public class ExteriorPointActivity extends Activity {
         setContentView(R.layout.activity_exterior_point);
 
         //TODO add a method to readout the pointList from the ExteriorPoints
-        Toast.makeText(this.getBaseContext(), "TODO read to list", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this.getBaseContext(), "TODO read to list", Toast.LENGTH_SHORT).show();
     }
 
 

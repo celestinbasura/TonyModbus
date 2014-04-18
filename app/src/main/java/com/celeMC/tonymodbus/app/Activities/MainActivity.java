@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
         btnExteroir = (Button) findViewById(R.id.btn_exterior);
         btnGroups = (Button) findViewById(R.id.btn_groups);
         txtStatus.setText("smeme");
-        final ConnecterThread cnn = new ConnecterThread(this.getBaseContext() ,"192.168.197.1" ,5020);
+        final ConnecterThread cnn = new ConnecterThread(this.getBaseContext() ,"192.168.1.37" ,5020);
 
         new Thread(new Runnable() {
             @Override
@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
         btnExteroir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent interiorIntent = new Intent(MainActivity.this, InteriorPointActivity.class);//InteriorPointActivity.class
+                Intent interiorIntent = new Intent(MainActivity.this, ListActivityNew.class);//InteriorPointActivity.class
                 startActivity(interiorIntent);
             }
         });
@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
         btnInteroir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent exteriorIntent = new Intent(MainActivity.this, ExteriorPointActivity.class);
+                Intent exteriorIntent = new Intent(MainActivity.this, ListActivityNew.class);
                 startActivity(exteriorIntent);
             }
         });
@@ -66,13 +66,14 @@ public class MainActivity extends Activity {
         btnGroups.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent groupIntent = new Intent (MainActivity.this, GroupPointActivity.class);
+                Intent groupIntent = new Intent (MainActivity.this, ListActivityNew.class);
                 startActivity(groupIntent);
             }
         });
 
 
     }
+
 
 
     @Override

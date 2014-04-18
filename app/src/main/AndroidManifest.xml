@@ -7,11 +7,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/light_bulb"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,16 +20,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.InteriorPointActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.InteriorPointActivity"
             android:label="@string/title_activity_interior_point" >
         </activity>
         <activity
-            android:name=".Activities.ExteriorPointActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.ExteriorPointActivity"
             android:label="@string/title_activity_exterior_point" >
         </activity>
         <activity
-            android:name=".Activities.GroupPointActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.GroupPointActivity"
             android:label="@string/title_activity_group_point" >
+        </activity>
+        <activity
+            android:name="com.celeMC.tonymodbus.app.Activities.ListActivity"
+            android:label="@string/title_activity_list_activity_test" >
+        </activity>
+        <activity
+            android:name="com.celeMC.tonymodbus.app.Activities.ListActivityNew"
+            android:label="@string/title_activity_list_activity_new" >
         </activity>
     </application>
 

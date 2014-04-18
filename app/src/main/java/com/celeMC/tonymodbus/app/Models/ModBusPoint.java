@@ -52,4 +52,8 @@ public class ModBusPoint {
 
         this.value = value;
     }
+    public int getTimerValue(){
+
+        return 0;
+    }
 }
