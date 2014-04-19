@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
             holder.textTimer = (TextView) row.findViewById(R.id.txt_timervalue);
             holder.btnActivate = (Button) row.findViewById(R.id.btn_activate);
             holder.btnEditTimer = (Button) row.findViewById(R.id.btn_timer);
+            holder.imgStatus = (ImageButton) row.findViewById(R.id.img_state);
             row.setTag(holder);
         } else {
             holder = (UserHolder) row.getTag();
@@ -56,6 +58,13 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         holder.textName.setText(point.getName());
         holder.textAddress.setText(point.getAddress() + "");
         holder.textTimer.setText(point.getTimerValue() + "");
+
+        if(point.getIntPointValue() == 0){
+
+            holder.imgStatus.setBackgroundResource(R.drawable.light_bulb_off);
+        }else{
+            holder.imgStatus.setBackgroundResource(R.drawable.light_bulb);
+        }
 
 
         holder.btnActivate.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +97,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         TextView textTimer;
         Button btnActivate;
         Button btnEditTimer;
+        ImageButton imgStatus;
     }
 }
 

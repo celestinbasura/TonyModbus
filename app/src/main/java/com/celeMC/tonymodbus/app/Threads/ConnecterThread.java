@@ -79,7 +79,7 @@ public class ConnecterThread implements  Runnable{
             con.connect();
             Log.d("cele", "tried");
 
-            regRequest = new ReadMultipleRegistersRequest(0,9);
+            regRequest = new ReadMultipleRegistersRequest(0,120);
             trans = new ModbusTCPTransaction(con);
 
             trans.setConnection(con);

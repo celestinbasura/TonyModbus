@@ -31,14 +31,14 @@ public class MainActivity extends Activity {
         String defaultIP;
         int defaultPort;
         final EditText addressIP;
-        EditText addressPort;
+        final EditText addressPort;
 
 
 
         super.onCreate(savedInstanceState);
 
 
-        defaultIP = "192.168.1.27";
+        defaultIP = "192.168.197.1";
         defaultPort = 5020;
 
         setContentView(R.layout.activity_main);
@@ -60,8 +60,6 @@ public class MainActivity extends Activity {
         txtStatus.setText("Connection status");
 
 
-        final ConnecterThread cnn = new ConnecterThread(this.getBaseContext() ,defaultIP ,
-                defaultPort);
 
         Log.d("cele", "created");
 
@@ -69,14 +67,22 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
 
+    try {
+        final ConnecterThread cnn = new ConnecterThread(getBaseContext(), addressIP.getText().toString(),
+                Integer.valueOf(addressPort.getText().toString()));
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        cnn.run();
-                    }
-                }).start();
-                Toast.makeText(getApplicationContext(), "Connecting to " + addressIP.getText(), Toast.LENGTH_SHORT).show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                cnn.run();
+            }
+        }).start();
+        Toast.makeText(getApplicationContext(), "Connecting to " + addressIP.getText(), Toast.LENGTH_SHORT).show();
+    }catch (NumberFormatException e){
+        Log.d("cele", "Port not correct");
+        Toast.makeText(getApplicationContext(), "The port is incorrect", Toast.LENGTH_SHORT).show();
+    }
 
             }
         });
