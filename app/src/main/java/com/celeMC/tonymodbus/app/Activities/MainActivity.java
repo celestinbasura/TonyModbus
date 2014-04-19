@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.celeMC.tonymodbus.app.R;
 import com.celeMC.tonymodbus.app.Threads.ConnecterThread;
@@ -23,26 +26,62 @@ public class MainActivity extends Activity {
         TextView txtStatus;
         Button btnInteroir;
         Button btnExteroir;
+        Button btnConnect;
         Button btnGroups;
+        String defaultIP;
+        int defaultPort;
+        final EditText addressIP;
+        EditText addressPort;
 
 
 
         super.onCreate(savedInstanceState);
+
+
+        defaultIP = "192.168.1.27";
+        defaultPort = 5020;
+
         setContentView(R.layout.activity_main);
         txtStatus = (TextView)findViewById(R.id.txt_connstatus);
 
+
         btnInteroir = (Button) findViewById(R.id.btn_interior);
         btnExteroir = (Button) findViewById(R.id.btn_exterior);
+        btnConnect = (Button) findViewById(R.id.btn_connect_command);
         btnGroups = (Button) findViewById(R.id.btn_groups);
-        txtStatus.setText("Connection status");
-        final ConnecterThread cnn = new ConnecterThread(this.getBaseContext() ,"192.168.197.1" ,5020);
+        addressIP = (EditText) findViewById(R.id.edit_text_ip);
+        addressPort = (EditText) findViewById(R.id.edit_text_port);
 
-        new Thread(new Runnable() {
+
+        addressIP.setText(defaultIP);
+        addressPort.setText(defaultPort + "");
+
+
+        txtStatus.setText("Connection status");
+
+
+        final ConnecterThread cnn = new ConnecterThread(this.getBaseContext() ,defaultIP ,
+                defaultPort);
+
+        Log.d("cele", "created");
+
+        btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                cnn.run();
+            public void onClick(View view) {
+
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        cnn.run();
+                    }
+                }).start();
+                Toast.makeText(getApplicationContext(), "Connecting to " + addressIP.getText(), Toast.LENGTH_SHORT).show();
+
             }
-       }).start();
+        });
+
+
 
 
         btnExteroir.setOnClickListener(new View.OnClickListener() {

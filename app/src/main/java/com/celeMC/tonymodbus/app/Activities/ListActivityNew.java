@@ -12,6 +12,7 @@ import com.celeMC.tonymodbus.app.Adapters.PointCustomAdapter;
 import com.celeMC.tonymodbus.app.Models.ModBusPoint;
 import com.celeMC.tonymodbus.app.R;
 import com.celeMC.tonymodbus.app.Threads.ConnecterThread;
+import com.ghgande.j2mod.modbus.msg.ReadMultipleRegistersResponse;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class ListActivityNew extends Activity {
     ListView userList;
     PointCustomAdapter userAdapter;
     ArrayList<ModBusPoint> pointListHelper = new ArrayList<ModBusPoint>();
+    ReadMultipleRegistersResponse rep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,21 +35,26 @@ public class ListActivityNew extends Activity {
         /**
          * add item in arraylist
          */
-        pointListHelper.add(new ModBusPoint("p1", 0, 54));
-        pointListHelper.add(new ModBusPoint("p2", 1, 654));
-        pointListHelper.add(new ModBusPoint("p3", 2, 87));
-        pointListHelper.add(new ModBusPoint("p4", 3, 98));
-        pointListHelper.add(new ModBusPoint("p5", 4, 7));
-        pointListHelper.add(new ModBusPoint("p6", 5, 9));
-        pointListHelper.add(new ModBusPoint("p7", 6, 9));
+        pointListHelper.add(new ModBusPoint("p1", 0, 999));
+        pointListHelper.add(new ModBusPoint("p2", 1, 999));
+        pointListHelper.add(new ModBusPoint("p3", 2, 999));
+        pointListHelper.add(new ModBusPoint("p4", 3, 999));
+        pointListHelper.add(new ModBusPoint("p5", 4, 999));
+        pointListHelper.add(new ModBusPoint("p6", 5, 999));
+        pointListHelper.add(new ModBusPoint("p7", 6, 999));
 
-        pointListHelper.get(0).setValue(ConnecterThread.getRegResponse().getRegisterValue(0));
-        pointListHelper.get(1).setValue(ConnecterThread.getRegResponse().getRegisterValue(1));
-        pointListHelper.get(2).setValue(ConnecterThread.getRegResponse().getRegisterValue(2));
-        pointListHelper.get(3).setValue(ConnecterThread.getRegResponse().getRegisterValue(3));
-        pointListHelper.get(4).setValue(ConnecterThread.getRegResponse().getRegisterValue(4));
-        pointListHelper.get(5).setValue(ConnecterThread.getRegResponse().getRegisterValue(5));
-        pointListHelper.get(6).setValue(ConnecterThread.getRegResponse().getRegisterValue(6));
+        rep = ConnecterThread.getRegResponse();
+        if(rep == null){
+            Toast.makeText(this.getBaseContext(), "No response recieved", Toast.LENGTH_SHORT).show();
+        }else {
+            pointListHelper.get(0).setValue(rep.getRegisterValue(0));
+            pointListHelper.get(1).setValue(rep.getRegisterValue(1));
+            pointListHelper.get(2).setValue(rep.getRegisterValue(2));
+            pointListHelper.get(3).setValue(rep.getRegisterValue(3));
+            pointListHelper.get(4).setValue(rep.getRegisterValue(4));
+            pointListHelper.get(5).setValue(rep.getRegisterValue(5));
+            pointListHelper.get(6).setValue(rep.getRegisterValue(6));
+        }
         /**
          * set item into adapter
          */

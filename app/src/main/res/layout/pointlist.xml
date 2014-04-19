@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffcc2007"
+    android:background="#FFFFFFFF"
     tools:context=".ListActivity" >
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp"
         android:text="Multi Touch Listview"
-        android:textColor="#FFFFFF"
+        android:textColor="#ff000000"
         android:textSize="25sp" />
 
     <LinearLayout

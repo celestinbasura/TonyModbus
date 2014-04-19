@@ -128,6 +128,7 @@ public class ConnecterThread implements  Runnable{
     }
 
     public static ReadMultipleRegistersResponse getRegResponse(){
+
         if(regResponse != null){
             return regResponse;
         }
