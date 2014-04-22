@@ -10,7 +10,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="#FFFFFF"
-        
+
         android:layout_marginRight="10dp"
         />
     <TextView
@@ -33,29 +33,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/btn_activate"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="#FFFFFF"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:text="@string/tgl_btn"
-        android:textColor="#0099CC" />
 
     <Button
         android:id="@+id/btn_timer"
         android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_height="80dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/btn_activate"
+
         android:layout_marginTop="3dp"
         android:background="#FFFFFF"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:text="Timer"
+        android:textSize="25sp"
         android:textColor="#0099CC" />
 
     <TextView

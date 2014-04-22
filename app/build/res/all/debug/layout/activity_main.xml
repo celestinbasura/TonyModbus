@@ -33,6 +33,7 @@
             android:hint="port"/>
 
 
+
         </LinearLayout>
 
     <Button
@@ -41,7 +42,7 @@
 
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="20dp"/>
 
 
     <Button
@@ -73,8 +74,11 @@
     <TextView
         android:layout_width="fill_parent"
         android:id="@+id/txt_connstatus"
+        android:text="Press Connect"
+        android:textSize="15sp"
+        android:gravity="center"
         android:layout_marginTop="30dp"
-        android:layout_height="80dp" />
+        android:layout_height="30dp" />
 
 </LinearLayout>
 <!-- From: file:/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_main.xml -->

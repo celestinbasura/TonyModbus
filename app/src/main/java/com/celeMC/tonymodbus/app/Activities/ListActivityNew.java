@@ -35,11 +35,11 @@ public class ListActivityNew extends Activity {
         /**
          * add item in arraylist
          */
-        pointListHelper.add(new ModBusPoint("p1", 0, 999));
+        pointListHelper.add(new ModBusPoint("p1", 0, 0));
         pointListHelper.add(new ModBusPoint("p2", 1, 999));
         pointListHelper.add(new ModBusPoint("p3", 2, 999));
-        pointListHelper.add(new ModBusPoint("p4", 3, 999));
-        pointListHelper.add(new ModBusPoint("p5", 4, 999));
+        pointListHelper.add(new ModBusPoint("p4", 3, 0));
+        pointListHelper.add(new ModBusPoint("p5", 4, 0));
         pointListHelper.add(new ModBusPoint("p6", 5, 999));
         pointListHelper.add(new ModBusPoint("p7", 6, 999));
 
@@ -48,7 +48,8 @@ public class ListActivityNew extends Activity {
             Toast.makeText(this.getBaseContext(), "No response recieved", Toast.LENGTH_SHORT).show();
         }else {
             pointListHelper.get(0).setValue(rep.getRegisterValue(0));
-            pointListHelper.get(1).setValue(rep.getRegisterValue(1));
+            pointListHelper.get(1).setTimerValue(rep.getRegisterValue(1));
+            //pointListHelper.get(1).setValue(rep.getRegisterValue(1));
             pointListHelper.get(2).setValue(rep.getRegisterValue(2));
             pointListHelper.get(3).setValue(rep.getRegisterValue(3));
             pointListHelper.get(4).setValue(rep.getRegisterValue(4));

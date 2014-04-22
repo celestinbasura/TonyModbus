@@ -8,6 +8,30 @@ public class ModBusPoint {
 
     String name;
 
+    public void setTimerValue(int timerValue) {
+        this.timerValue = timerValue;
+    }
+
+    public int getPointValue() {
+        return pointValue;
+    }
+
+    public void setPointValue(int pointValue) {
+        this.pointValue = pointValue;
+    }
+
+    public int getPointAddress() {
+        return pointAddress;
+    }
+
+    public void setPointAddress(int pointAddress) {
+        this.pointAddress = pointAddress;
+    }
+
+    int timerValue;
+    int pointValue;
+    int pointAddress;
+
     public int getAddress() {
         return address;
     }

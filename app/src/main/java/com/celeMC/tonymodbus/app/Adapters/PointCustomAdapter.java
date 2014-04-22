@@ -47,7 +47,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
             holder.textName = (TextView) row.findViewById(R.id.txt_pointname);
             holder.textAddress = (TextView) row.findViewById(R.id.txt_pointaddress);
             holder.textTimer = (TextView) row.findViewById(R.id.txt_timervalue);
-            holder.btnActivate = (Button) row.findViewById(R.id.btn_activate);
+
             holder.btnEditTimer = (Button) row.findViewById(R.id.btn_timer);
             holder.imgStatus = (ImageButton) row.findViewById(R.id.img_state);
             row.setTag(holder);
@@ -67,13 +67,13 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         }
 
 
-        holder.btnActivate.setOnClickListener(new View.OnClickListener() {
+        holder.imgStatus.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Log.i("Edit Button Clicked", "**********");
-                makeText(context, "Edit button Clicked",
+                makeText(context, "Toggle button tapped",
                         LENGTH_LONG).show();
             }
         });
@@ -83,7 +83,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Log.i("Delete Button Clicked", "**********");
-                makeText(context, "Delete button Clicked",
+                makeText(context, "Timer button Clicked",
                         LENGTH_LONG).show();
             }
         });
@@ -95,7 +95,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         TextView textName;
         TextView textAddress;
         TextView textTimer;
-        Button btnActivate;
+
         Button btnEditTimer;
         ImageButton imgStatus;
     }

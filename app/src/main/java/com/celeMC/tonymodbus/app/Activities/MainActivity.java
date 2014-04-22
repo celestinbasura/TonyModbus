@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.celeMC.tonymodbus.app.Interfaces.ConnectionCallback;
 import com.celeMC.tonymodbus.app.R;
 import com.celeMC.tonymodbus.app.Threads.ConnecterThread;
 
@@ -23,10 +24,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        TextView txtStatus;
+        final TextView txtStatus;
         Button btnInteroir;
         Button btnExteroir;
-        Button btnConnect;
+        final Button btnConnect;
         Button btnGroups;
         String defaultIP;
         int defaultPort;
@@ -66,10 +67,44 @@ public class MainActivity extends Activity {
         btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnConnect.setText("Connecting....");
+               btnConnect.setClickable(false);
 
     try {
         final ConnecterThread cnn = new ConnecterThread(getBaseContext(), addressIP.getText().toString(),
-                Integer.valueOf(addressPort.getText().toString()));
+                Integer.valueOf(addressPort.getText().toString()), new ConnectionCallback() {
+            @Override
+            public void onSuccess() {
+
+                Log.d("cele", "connected");
+
+                txtStatus.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        btnConnect.setText("Connected");
+                        txtStatus.setText("connected");
+
+                    }
+                });
+
+            }
+
+            @Override
+            public void onFailure() {
+
+
+                txtStatus.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        btnConnect.setClickable(true);
+                        btnConnect.setText("Failed to connect");
+                        txtStatus.setText("not connected");
+
+                    }
+                });
+
+            }
+        });
 
 
         new Thread(new Runnable() {

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:text="Multi Touch Listview"
         android:textColor="#ff000000"
         android:textSize="25sp" />
@@ -30,7 +30,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/marker"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:cacheColorHint="#00000000" />
 
 </RelativeLayout><!-- From: file:/Users/celestinbasura/TonyModbus/app/src/main/res/layout/pointlist.xml -->

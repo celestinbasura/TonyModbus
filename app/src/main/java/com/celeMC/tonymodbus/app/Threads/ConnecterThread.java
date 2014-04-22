@@ -10,6 +10,7 @@ import net.wimpi.modbus.msg.ReadInputRegistersRequest;
 import net.wimpi.modbus.msg.ReadInputRegistersResponse;
 import net.wimpi.modbus.net.TCPMasterConnection;*/
 
+import com.celeMC.tonymodbus.app.Interfaces.ConnectionCallback;
 import com.ghgande.j2mod.modbus.io.ModbusTCPTransaction;
 import com.ghgande.j2mod.modbus.msg.ReadInputDiscretesRequest;
 import com.ghgande.j2mod.modbus.msg.ReadInputDiscretesResponse;
@@ -32,6 +33,7 @@ public class ConnecterThread implements  Runnable{
     Context ctx;
     Socket socket;
     String hostIP = "192.168.197.1";
+    private ConnectionCallback connectionCallback;
     int modbusPort = 5020;
     TCPMasterConnection con = null;
     ModbusTCPTransaction trans = null;
@@ -46,11 +48,12 @@ public class ConnecterThread implements  Runnable{
     int count = 1;
     int repeat = 100;
 
-   public ConnecterThread(Context ctx, String IP, int port){
+   public ConnecterThread(Context ctx, String IP, int port, ConnectionCallback connectionCallback){
 
     this.ctx = ctx;
     this.hostIP = IP;
     this.modbusPort = port;
+       this.connectionCallback = connectionCallback;
 
 }
 
@@ -69,7 +72,7 @@ public class ConnecterThread implements  Runnable{
         con = new TCPMasterConnection(modbusServerIP);
 
         con.setPort(modbusPort);
-
+        //con.setTimeout(1000);
 
         Log.d("cele", "starting conn");
 
@@ -110,10 +113,12 @@ public class ConnecterThread implements  Runnable{
 
             Log.d("cele", "commected");
             con.close();
+            connectionCallback.onSuccess();
 
         } else {
 
             Log.d("cele", "not connected");
+            connectionCallback.onFailure();
         }
 
 
