@@ -34,14 +34,14 @@ public class ListActivityNew extends Activity {
 
         /**
          * add item in arraylist
-         */
-        pointListHelper.add(new ModBusPoint("p1", 0, 0));
-        pointListHelper.add(new ModBusPoint("p2", 1, 999));
-        pointListHelper.add(new ModBusPoint("p3", 2, 999));
-        pointListHelper.add(new ModBusPoint("p4", 3, 0));
-        pointListHelper.add(new ModBusPoint("p5", 4, 0));
-        pointListHelper.add(new ModBusPoint("p6", 5, 999));
-        pointListHelper.add(new ModBusPoint("p7", 6, 999));
+*/
+        pointListHelper.add(new ModBusPoint("p1", 0,3,  0));
+        pointListHelper.add(new ModBusPoint("p2", 1,3, 999));
+        pointListHelper.add(new ModBusPoint("p3", 2,3, 999));
+        pointListHelper.add(new ModBusPoint("p4", 3,3, 0));
+        pointListHelper.add(new ModBusPoint("p5", 4,3, 0));
+        pointListHelper.add(new ModBusPoint("p6", 5,3, 999));
+        pointListHelper.add(new ModBusPoint("p7", 6,3, 999));
 
         rep = ConnecterThread.getRegResponse();
         if(rep == null){

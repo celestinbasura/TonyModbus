@@ -16,9 +16,9 @@ public class InteriorPoints implements PointGroupInterface {
 //Created two methods to add points, one handles a creation a new ModBusPoint while the second method can just add an existing point.
 
     @Override
-    public void addPointToList(String name, int address, int defaultValue) {
+    public void addPointToList(String name, int address, int timerAddress, int defaultValue) {
 
-        interiorPointList.add(new ModBusPoint(name, address, defaultValue));
+        interiorPointList.add(new ModBusPoint(name, address,timerAddress, defaultValue));
 
     }
 

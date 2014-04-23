@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
         btnExteroir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent interiorIntent = new Intent(MainActivity.this, ListActivityNew.class);//InteriorPointActivity.class
+                Intent interiorIntent = new Intent(MainActivity.this, ExteriorPointActivity.class);//InteriorPointActivity.class
                 startActivity(interiorIntent);
             }
         });
@@ -137,7 +137,7 @@ public class MainActivity extends Activity {
         btnInteroir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent exteriorIntent = new Intent(MainActivity.this, ListActivityNew.class);
+                Intent exteriorIntent = new Intent(MainActivity.this, InteriorPointActivity.class);
                 startActivity(exteriorIntent);
             }
         });
@@ -146,7 +146,7 @@ public class MainActivity extends Activity {
         btnGroups.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent groupIntent = new Intent (MainActivity.this, ListActivityNew.class);
+                Intent groupIntent = new Intent (MainActivity.this, GroupPointActivity.class);
                 startActivity(groupIntent);
             }
         });

@@ -279,6 +279,11 @@ Never
                 path="/Users/celestinbasura/TonyModbus/app/src/main/res/xml/pref_notification.xml"
                 qualifiers=""
                 type="xml" />
+            <file
+                name="light_bulb_error"
+                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_error.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
         </source>
         <source path="/Users/celestinbasura/TonyModbus/app/build/res/rs/debug" />
         <source path="/Users/celestinbasura/TonyModbus/app/build/res/generated/debug" />

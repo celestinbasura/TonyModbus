@@ -56,13 +56,19 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         }
         ModBusPoint point = data.get(position);
         holder.textName.setText(point.getName());
-        holder.textAddress.setText(point.getAddress() + "");
+        holder.textAddress.setText(point.getIntPointValue() + "");
         holder.textTimer.setText(point.getTimerValue() + "");
 
         if(point.getIntPointValue() == 0){
 
             holder.imgStatus.setBackgroundResource(R.drawable.light_bulb_off);
-        }else{
+        }else
+            if(point.getIntPointValue() == 999){
+
+                holder.imgStatus.setBackgroundResource(R.drawable.light_bulb_error);
+
+            }else{
+
             holder.imgStatus.setBackgroundResource(R.drawable.light_bulb);
         }
 

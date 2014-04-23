@@ -40,6 +40,7 @@ public class ModBusPoint {
         return name;
     }
 
+    int timerAddress;
     int address;
     int value;
     boolean interpretedVaule; //Value represented in boolean from the recieved int value (value == 0 > false, else > true
@@ -48,11 +49,12 @@ public class ModBusPoint {
 //a constructor for a point, adds all the required info. Default value is used to add more control if the default value changes from 0
 // in any later modifications of the program
 
-    public ModBusPoint(String name, int address, int defaultValue) {
+    public ModBusPoint(String name, int address, int timerAddress, int defaultValue) {
 
         this.name = name;
         this.address = address;
         this.value = defaultValue;
+        this.timerAddress = timerAddress;
 
     }
 
@@ -78,6 +80,6 @@ public class ModBusPoint {
     }
     public int getTimerValue(){
 
-        return this.getIntPointValue();
+        return this.timerValue;
     }
 }

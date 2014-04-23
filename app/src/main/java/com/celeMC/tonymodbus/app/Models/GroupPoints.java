@@ -11,7 +11,7 @@ public class GroupPoints implements PointGroupInterface {
 
 
     @Override
-    public void addPointToList(String name, int address, int value) {
+    public void addPointToList(String name, int address, int timerValue, int value) {
 
     }
 

@@ -5,6 +5,13 @@
     android:background="#FFFFFFFF"
     tools:context=".ListActivity" >
 
+    <LinearLayout
+        android:id="@+id/marker"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:background="#ff4cb621"
+        android:orientation="vertical">
+
     <TextView
         android:id="@+id/txt_listname"
         android:layout_width="wrap_content"
@@ -12,25 +19,26 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
+        android:layout_gravity="center"
         android:text="Multi Touch Listview"
         android:textColor="#ff000000"
-        android:textSize="25sp" />
+        android:textSize="30sp" />
 
     <LinearLayout
-        android:id="@+id/marker"
+        android:id="@+id/marker2"
         android:layout_width="fill_parent"
         android:orientation="vertical"
-        android:layout_height="2dp"
-        android:background="#ff000000"
-        android:layout_below="@+id/txt_listname"
-        ></LinearLayout>
+        android:layout_height="5dp"
+        android:background="#ff000000" >
+    </LinearLayout>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/marker"
-        android:layout_marginTop="5dp"
+
         android:cacheColorHint="#00000000" />
 
 </RelativeLayout><!-- From: file:/Users/celestinbasura/TonyModbus/app/src/main/res/layout/pointlist.xml -->

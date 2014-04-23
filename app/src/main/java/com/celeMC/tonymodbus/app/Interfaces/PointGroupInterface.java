@@ -17,7 +17,7 @@ public interface PointGroupInterface {
     public ArrayList<ModBusPoint> pointList = new ArrayList<ModBusPoint>();//Point holder for the groupList
 
 
-    public void addPointToList(String name, int address, int value);
+    public void addPointToList(String name, int address, int timerValue, int value);
 
     public void addPointToList(ModBusPoint pnt);
 
