@@ -36,7 +36,8 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
+
         View row = convertView;
         UserHolder holder = null;
 
@@ -47,13 +48,14 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
             holder.textName = (TextView) row.findViewById(R.id.txt_pointname);
             holder.textAddress = (TextView) row.findViewById(R.id.txt_pointaddress);
             holder.textTimer = (TextView) row.findViewById(R.id.txt_timervalue);
-
             holder.btnEditTimer = (Button) row.findViewById(R.id.btn_timer);
             holder.imgStatus = (ImageButton) row.findViewById(R.id.img_state);
             row.setTag(holder);
+
         } else {
             holder = (UserHolder) row.getTag();
         }
+
         ModBusPoint point = data.get(position);
         holder.textName.setText(point.getName());
         holder.textAddress.setText(point.getIntPointValue() + "");
@@ -77,10 +79,11 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
 
             @Override
             public void onClick(View v) {
+
                 // TODO Auto-generated method stub
                 Log.i("Edit Button Clicked", "**********");
-                makeText(context, "Toggle button tapped",
-                        LENGTH_LONG).show();
+                makeText(context, "Toggle button tapped on: " + (position + 1),
+                        LENGTH_SHORT).show();
             }
         });
         holder.btnEditTimer.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +92,8 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Log.i("Delete Button Clicked", "**********");
-                makeText(context, "Timer button Clicked",
-                        LENGTH_LONG).show();
+                makeText(context, "Timer button Clicked on: " + (position + 1),
+                        LENGTH_SHORT).show();
             }
         });
         return row;
@@ -101,7 +104,6 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         TextView textName;
         TextView textAddress;
         TextView textTimer;
-
         Button btnEditTimer;
         ImageButton imgStatus;
     }
