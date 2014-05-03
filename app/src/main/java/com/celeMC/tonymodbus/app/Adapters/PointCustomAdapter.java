@@ -2,6 +2,7 @@ package com.celeMC.tonymodbus.app.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,15 +43,22 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         UserHolder holder = null;
 
         if (row == null) {
+
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
+
+
             holder = new UserHolder();
             holder.textName = (TextView) row.findViewById(R.id.txt_pointname);
             holder.textAddress = (TextView) row.findViewById(R.id.txt_pointaddress);
             holder.textTimer = (TextView) row.findViewById(R.id.txt_timervalue);
-            holder.btnEditTimer = (Button) row.findViewById(R.id.btn_timer);
+            holder.btnEditTimer = (ImageButton) row.findViewById(R.id.btn_timer);
             holder.imgStatus = (ImageButton) row.findViewById(R.id.img_state);
             row.setTag(holder);
+
+           // if(position % 2 == 1){
+            //    row.setBackgroundColor(Color.parseColor("#ff367f52"));//TODO FIX COLORS (Random)
+           // }
 
         } else {
             holder = (UserHolder) row.getTag();
@@ -60,6 +68,8 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         holder.textName.setText(point.getName());
         holder.textAddress.setText(point.getIntPointValue() + "");
         holder.textTimer.setText(point.getTimerValue() + "");
+
+
 
         if(point.getIntPointValue() == 0){
 
@@ -104,7 +114,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         TextView textName;
         TextView textAddress;
         TextView textTimer;
-        Button btnEditTimer;
+        ImageButton btnEditTimer;
         ImageButton imgStatus;
     }
 }

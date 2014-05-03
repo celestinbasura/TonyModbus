@@ -3,6 +3,7 @@ package com.celeMC.tonymodbus.app.Activities;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -97,6 +98,8 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         btnConnect.setClickable(true);
+                        btnConnect.setTextColor(Color.RED);
+
                         btnConnect.setText("Failed to connect");
                         txtStatus.setText("not connected");
 

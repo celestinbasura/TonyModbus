@@ -36,7 +36,7 @@ public class GroupPointActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        
+
         setContentView(R.layout.pointlist);
 
         headline = (TextView) findViewById(R.id.txt_listname);

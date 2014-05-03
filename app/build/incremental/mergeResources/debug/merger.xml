@@ -284,6 +284,11 @@ Never
                 path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_error.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
+            <file
+                name="timer_icon"
+                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
         </source>
         <source path="/Users/celestinbasura/TonyModbus/app/build/res/rs/debug" />
         <source path="/Users/celestinbasura/TonyModbus/app/build/res/generated/debug" />

@@ -25,6 +25,7 @@ public final class R {
         public static final int light_bulb=0x7f020001;
         public static final int light_bulb_error=0x7f020002;
         public static final int light_bulb_off=0x7f020003;
+        public static final int timer_icon=0x7f020004;
     }
     public static final class id {
         public static final int action_connect=0x7f0a0019;
