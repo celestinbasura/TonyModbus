@@ -12,6 +12,8 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="#FFFFFF"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_marginRight="10dp"
         />
     <TextView
@@ -23,27 +25,6 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    <TextView
-        android:id="@+id/txt_fixed_value"
-        android:layout_width="60dp"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content"
-        android:text="Value:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@id/txt_pointname"
-        android:layout_toRightOf="@id/img_state"/>
-
-    <TextView
-        android:id="@+id/txt_pointaddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@+id/txt_pointname"
-        android:layout_toRightOf="@id/txt_fixed_value"
-        android:layout_marginTop="7dp"
-        android:text="Address"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
 
 
     <ImageButton
@@ -60,22 +41,24 @@
 
     <TextView
         android:id="@+id/txt_fixed_timer"
-        android:layout_width="60dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="80dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:text="Timer:"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@id/txt_fixed_value"
+        android:layout_below="@id/txt_pointname"
+        android:textSize="25sp"
         android:layout_toRightOf="@id/img_state"/>
 
     <TextView
         android:id="@+id/txt_timervalue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_toRightOf="@id/txt_fixed_timer"
-        android:layout_below="@+id/txt_pointaddress"
-        android:layout_marginTop="8dp"
-        android:textSize="16sp"
+        android:layout_below="@+id/txt_pointname"
+        android:layout_marginTop="10dp"
+        android:textSize="25sp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="timer value" />
 

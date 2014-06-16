@@ -15,5 +15,6 @@
     <string name="tgl_btn">Toggle</string>
     <string name="title_activity_list_activity_test">ListActivityTest</string>
     <string name="title_activity_list_activity_new">ListActivityNew</string>
+   <!-- <string name="title_activity_settings">Settings</string> -->
 
 </resources>

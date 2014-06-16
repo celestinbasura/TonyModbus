@@ -18,7 +18,7 @@
         </activity>
         <activity android:label="@string/title_activity_group_point" android:name="com.celeMC.tonymodbus.app.Activities.GroupPointActivity">
         </activity>
-        <activity android:label="@string/title_activity_list_activity_new" android:name="com.celeMC.tonymodbus.app.Activities.ListActivityNew">
+        <activity android:label="@string/title_activity_settings" android:name="com.celeMC.tonymodbus.app.Activities.Settings">
         </activity>
     </application>
 

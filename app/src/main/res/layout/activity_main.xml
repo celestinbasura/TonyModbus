@@ -11,31 +11,6 @@
     tools:context="com.celeMC.tonymodbus.app.Activities.MainActivity">
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/edit_text_ip"
-
-            android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:hint="IP address"/>
-
-        <EditText
-            android:id="@+id/edit_text_port"
-            android:gravity="center"
-            android:layout_marginLeft="15dp"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:hint="port"/>
-
-
-
-        </LinearLayout>
 
     <Button
         android:id="@+id/btn_connect_command"

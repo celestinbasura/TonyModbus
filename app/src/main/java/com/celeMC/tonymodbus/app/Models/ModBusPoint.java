@@ -8,78 +8,71 @@ public class ModBusPoint {
 
     String name;
 
-    public void setTimerValue(int timerValue) {
-        this.timerValue = timerValue;
-    }
+    int statusAdr;
 
-    public int getPointValue() {
-        return pointValue;
-    }
+    int controlAdr = 9999;
 
-    public void setPointValue(int pointValue) {
-        this.pointValue = pointValue;
-    }
+    int timerAdr = 9999;
 
-    public int getPointAddress() {
-        return pointAddress;
-    }
+    int statusValue = 999;
 
-    public void setPointAddress(int pointAddress) {
-        this.pointAddress = pointAddress;
-    }
+    int timerValue = 999;
 
-    int timerValue;
-    int pointValue;
-    int pointAddress;
+    int offset = 0;
 
-    public int getAddress() {
-        return address;
-    }
+
+
+
+
 
     public String getName() {
         return name;
     }
 
-    int timerAddress;
-    int address;
-    int value;
-    boolean interpretedVaule; //Value represented in boolean from the recieved int value (value == 0 > false, else > true
 
 
-//a constructor for a point, adds all the required info. Default value is used to add more control if the default value changes from 0
-// in any later modifications of the program
-
-    public ModBusPoint(String name, int address, int timerAddress, int defaultValue) {
+    public ModBusPoint(String name, int statusAdr, int offset) {
 
         this.name = name;
-        this.address = address;
-        this.value = defaultValue;
-        this.timerAddress = timerAddress;
+        this.statusAdr = statusAdr;
+        this.controlAdr = statusAdr + 1;
+        this.timerAdr = statusAdr + 2;
+        this.offset = offset;
 
     }
 
-    public int getIntPointValue() {
+    public int getTimerAdr(){
 
-        return this.value;
+        return timerAdr + offset;
     }
 
-    public boolean getBooleanPointValue() {
+    public int getControlAdr(){
 
-        if (this.value == 0) {
 
-            return false;
+            return controlAdr + offset;
 
-        } else {
-            return true;
-        }
+
+
     }
 
-    public void setValue(int value){
-
-        this.value = value;
+    public void setTimerValue(int timerValue) {
+        this.timerValue = timerValue;
     }
+
     public int getTimerValue(){
 
         return this.timerValue;
     }
+
+    public void setValue( int value){
+        this.statusValue = value;
+
+    }
+    public int getStatusValue(){
+
+        return this.statusValue;
+    }
+
+
+
 }

@@ -29,8 +29,18 @@
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
+                name="light_bulb_error"
+                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_error.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
                 name="light_bulb_off"
                 path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_off.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="timer_icon"
+                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
@@ -56,6 +66,11 @@
             <file
                 name="activity_main"
                 path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_settings"
+                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_settings.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -96,6 +111,11 @@
             <file
                 name="main"
                 path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/main.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="settings"
+                path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/settings.xml"
                 qualifiers=""
                 type="menu" />
             <file
@@ -279,16 +299,6 @@ Never
                 path="/Users/celestinbasura/TonyModbus/app/src/main/res/xml/pref_notification.xml"
                 qualifiers=""
                 type="xml" />
-            <file
-                name="light_bulb_error"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_error.png"
-                qualifiers="xxhdpi"
-                type="drawable" />
-            <file
-                name="timer_icon"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon.png"
-                qualifiers="xxhdpi"
-                type="drawable" />
         </source>
         <source path="/Users/celestinbasura/TonyModbus/app/build/res/rs/debug" />
         <source path="/Users/celestinbasura/TonyModbus/app/build/res/generated/debug" />

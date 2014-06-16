@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/celestinbasura/TonyModbus/app/build/intermediates/pre-dexed/debug/jamod-1.2-SNAPSHOT-5c10e9655b520df77aa3ff1a2b026ca307e51db5.jar"
+        jar="/Users/celestinbasura/TonyModbus/app/src/main/java/libs/jamod-1.2-SNAPSHOT.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="fb543826072663fb91a508d07b63fb4bd1e034f2"/>
+    <item
+        dex="/Users/celestinbasura/TonyModbus/app/build/intermediates/pre-dexed/debug/j2mod-0.96-35ce1cd7fb976a0d8b2fe94d60834d980f5b982a.jar"
+        jar="/Users/celestinbasura/TonyModbus/app/src/main/java/libs/j2mod-0.96.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="c206ea767f1b42b564b51d2d3ef6885429a638bd"/>
+
+</pre-dex-items>

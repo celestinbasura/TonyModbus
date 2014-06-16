@@ -1,10 +1,11 @@
 package com.celeMC.tonymodbus.app.Activities;
 
 import android.app.Activity;
-import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,52 +15,47 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.celeMC.tonymodbus.app.Interfaces.ConnectionCallback;
 import com.celeMC.tonymodbus.app.R;
-import com.celeMC.tonymodbus.app.Threads.ConnecterThread;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends Activity {
+
+
+
+
+    TextView txtStatus;
+    Button btnInteroir;
+    Button btnExteroir;
+    Button btnConnect;
+    Button btnGroups;
+    Handler handler = new Handler();
+    Timer tm;
+    TimerTask refreshScreen;
+    ConnectionManager connUsed;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        final TextView txtStatus;
-        Button btnInteroir;
-        Button btnExteroir;
-        final Button btnConnect;
-        Button btnGroups;
-        String defaultIP;
-        int defaultPort;
-        final EditText addressIP;
-        final EditText addressPort;
-
-
-
         super.onCreate(savedInstanceState);
 
 
-        defaultIP = "192.168.197.1";
-        defaultPort = 5020;
+
+
 
         setContentView(R.layout.activity_main);
-        txtStatus = (TextView)findViewById(R.id.txt_connstatus);
-
 
         btnInteroir = (Button) findViewById(R.id.btn_interior);
         btnExteroir = (Button) findViewById(R.id.btn_exterior);
         btnConnect = (Button) findViewById(R.id.btn_connect_command);
         btnGroups = (Button) findViewById(R.id.btn_groups);
-        addressIP = (EditText) findViewById(R.id.edit_text_ip);
-        addressPort = (EditText) findViewById(R.id.edit_text_port);
+        txtStatus = (TextView) findViewById(R.id.txt_connstatus);
 
+        connUsed = ConnectionManager.getInstance(getApplicationContext());
 
-        addressIP.setText(defaultIP);
-        addressPort.setText(defaultPort + "");
-
-
-        txtStatus.setText("Connection status");
 
 
 
@@ -68,63 +64,19 @@ public class MainActivity extends Activity {
         btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnConnect.setText("Connecting....");
-               btnConnect.setClickable(false);
-
-    try {
-        final ConnecterThread cnn = new ConnecterThread(getBaseContext(), addressIP.getText().toString(),
-                Integer.valueOf(addressPort.getText().toString()), new ConnectionCallback() {
-            @Override
-            public void onSuccess() {
-
-                Log.d("cele", "connected");
-
-                txtStatus.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        btnConnect.setText("Connected");
-                        txtStatus.setText("connected");
-
-                    }
-                });
-
-            }
-
-            @Override
-            public void onFailure() {
 
 
-                txtStatus.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        btnConnect.setClickable(true);
-                        btnConnect.setTextColor(Color.RED);
+                if(!connUsed.isConnected()){
 
-                        btnConnect.setText("Failed to connect");
-                        txtStatus.setText("not connected");
+                    connUsed.connectToServer();
+                }else{
 
-                    }
-                });
+                    connUsed.disconnectFromServer();
 
-            }
-        });
+                }
 
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                cnn.run();
-            }
-        }).start();
-        Toast.makeText(getApplicationContext(), "Connecting to " + addressIP.getText(), Toast.LENGTH_SHORT).show();
-    }catch (NumberFormatException e){
-        Log.d("cele", "Port not correct");
-        Toast.makeText(getApplicationContext(), "The port is incorrect", Toast.LENGTH_SHORT).show();
-    }
-
-            }
-        });
-
+            }});
 
 
 
@@ -155,6 +107,75 @@ public class MainActivity extends Activity {
         });
 
 
+
+        tm = new Timer();
+
+
+    }
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+       // connUsed.connectToServer();
+        Log.d("cele", "Onresume");
+
+        tm = new Timer();
+        refreshScreen = new TimerTask() {
+            @Override
+            public void run() {
+
+                Log.d("cele", "value checked" + connUsed.isConnected());
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        if(connUsed.isConnected()){
+
+                            btnConnect.setText("Disconnect");
+                            txtStatus.setText(" Connected to Server");
+                        }else{
+
+                            btnConnect.setText("Connect");
+                            txtStatus.setText(" Not Connected to Server");
+
+                        }
+
+                    }
+                });
+
+            }
+        };
+
+        tm.scheduleAtFixedRate(refreshScreen, (long) 500, (long) 1000);
+
+    }
+
+
+    @Override
+    protected void onPause() {
+        Log.d("cele", "Pause disconnect.");
+        // closeConnection();
+        tm.cancel();
+        Log.d("cele", "Onrpause");
+        refreshScreen.cancel();
+        //connUsed.disconnectFromServer();
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onStop() {
+        Log.d("cele", "Stop disconnect.");
+        //  closeConnection();
+        tm.cancel();
+        refreshScreen.cancel();
+        //connUsed.disconnectFromServer();
+
+        super.onStop();
+
     }
 
 
@@ -175,9 +196,14 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
 
+            Intent iinent= new Intent(MainActivity.this, Settings.class);
+            startActivity(iinent);
             return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }
