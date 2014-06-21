@@ -5,7 +5,7 @@
     android:paddingLeft="15dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="#ffcff1ff"
+    android:background="#ffefffee"
     android:orientation="vertical"
     tools:context="com.cele.diplomskibasura.app.Postavke">
 
@@ -41,20 +41,48 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:id="@+id/edt_internal_ip"
-            android:layout_marginLeft="10dp"
-            android:text="192.168.0.100"
+            android:textSize="17sp"
+            android:inputType="number"
+            android:id="@+id/edt_internal_ip1"
+            android:layout_marginLeft="5dp"
+            android:text="192"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:inputType="number"
+            android:id="@+id/edt_internal_ip2"
+            android:layout_marginLeft="0dp"
+            android:text="168"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:inputType="number"
+            android:id="@+id/edt_internal_ip3"
+            android:layout_marginLeft="0dp"
+            android:text="0"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:inputType="number"
+            android:id="@+id/edt_internal_ip4"
+            android:layout_marginLeft="0dp"
+            android:text="100"
             />
         <LinearLayout
-            android:layout_width="25dp"
+            android:layout_width="5dp"
             android:layout_height="match_parent"></LinearLayout>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="PORT"
+            android:text="\@"
             android:paddingBottom="8dp"
             android:textSize="20sp"
             android:layout_gravity="center"
@@ -64,9 +92,9 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-
+            android:layout_marginLeft="5dp"
+            android:textSize="17sp"
+            android:inputType="number"
             android:layout_marginStart="50dp"
             android:id="@+id/edt_internal_port"
             android:text="502"
@@ -155,8 +183,8 @@
         android:layout_height="70dp"
         android:id="@+id/btn_save_settings"
         android:text="Save"
-        android:background="#ff2280d7"
-        android:textColor="#ffcff1ff"
+        android:textColor="#ff38ff84"
+        android:background="#ff367f52"
         android:textSize="30sp"
         android:layout_margin="20dp"/>
 </LinearLayout><!-- From: file:/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_settings.xml -->

@@ -9,25 +9,22 @@ import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.celeMC.tonymodbus.app.Activities.ConnectionManager;
+import com.celeMC.tonymodbus.app.Activities.Connection;
 import com.celeMC.tonymodbus.app.Models.ModBusPoint;
 import com.celeMC.tonymodbus.app.R;
-import com.ghgande.j2mod.modbus.ModbusException;
-import com.ghgande.j2mod.modbus.io.ModbusTCPTransaction;
-import com.ghgande.j2mod.modbus.msg.WriteMultipleRegistersRequest;
-import com.ghgande.j2mod.modbus.msg.WriteMultipleRegistersResponse;
-import com.ghgande.j2mod.modbus.msg.WriteSingleRegisterRequest;
-import com.ghgande.j2mod.modbus.net.TCPMasterConnection;
-import com.ghgande.j2mod.modbus.procimg.SimpleRegister;
+import net.wimpi.modbus.ModbusException;
+import net.wimpi.modbus.io.ModbusTCPTransaction;
+import net.wimpi.modbus.msg.WriteSingleRegisterRequest;
+import net.wimpi.modbus.procimg.SimpleRegister;
 
 import java.util.ArrayList;
 
@@ -39,8 +36,6 @@ import static android.widget.Toast.*;
 public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
     Context context;
     int layoutResourceId;
-    Handler handler = new Handler();
-    TCPMasterConnection listConnection;
     ModbusTCPTransaction trans = null;
     ArrayList<ModBusPoint> data = new ArrayList<ModBusPoint>();
 
@@ -50,12 +45,11 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.data = data;
-        listConnection = ConnectionManager.getInstance(context.getApplicationContext()).getTCPconnection();
-        trans = new ModbusTCPTransaction(listConnection);
+
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
 
         View row = convertView;
         UserHolder holder = null;
@@ -82,7 +76,6 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
 
         final ModBusPoint point = data.get(position);
         holder.textName.setText(point.getName());
-       // holder.textAddress.setText(point.getStatusValue() + "");
         holder.textTimer.setText(point.getTimerValue() + "");
 
 
@@ -125,8 +118,11 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                 writeToServer(1, point.getControlAdr());
 
 
+
             }
         });
+
+
         holder.btnEditTimer.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -138,7 +134,6 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                 alert.setTitle("Set Timer Value");
                 alert.setMessage("Enter the timer value");
 
-// Set an EditText view to get user input
                 final EditText input = new EditText(context);
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
                 alert.setView(input);
@@ -160,23 +155,18 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
 
 
                         writeToServer(temp, point.getTimerAdr());
-                        // Do something with value!
+
                     }
                 });
 
                 alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        // Canceled.
+
                     }
                 });
 
                 alert.show();
 
-
-                // TODO Auto-generated method stub
-                Log.i("Delete Button Clicked", "**********");
-                makeText(context, "Timer button Clicked on: " + (position + 1),
-                        LENGTH_SHORT).show();
             }
         });
         return row;
@@ -185,7 +175,6 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
 
     static class UserHolder {
         TextView textName;
-        //TextView textAddress;
         TextView textTimer;
         ImageButton btnEditTimer;
         ImageButton imgStatus;
@@ -193,46 +182,34 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
 
     private void writeToServer(final int value, final int address){
 
-
-
-
-
-
+        trans = new ModbusTCPTransaction(Connection.conn);
         new Thread(new Runnable() {
             @Override
             public void run() {
 
 
-
-
                 SimpleRegister sr = new SimpleRegister();
                 sr = new SimpleRegister(value);
-                Log.d("cele", "reg created");
 
                 WriteSingleRegisterRequest singleRequest = new WriteSingleRegisterRequest(address, sr);
-
-
-                //WriteMultipleRegistersRequest writeRequest = new WriteMultipleRegistersRequest(sr);
                 Log.d("cele", "request set");
-                if (!(listConnection != null && listConnection.isConnected())) {
-                    return;
 
-
-                }
                 trans.setRequest(singleRequest);
                 try {
 
                     trans.execute();
                     trans.getResponse();
+                    trans = null;
                     Log.d("cele", "executed to " + address  + " with " + value);
                 } catch (ModbusException e) {
                     e.printStackTrace();
                 } catch (NullPointerException e) {
 
-                   // e.printStackTrace();
+                    e.printStackTrace();
                 }
 
             }
+
 
 
         }

@@ -11,19 +11,20 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.celeMC.tonymodbus.app.Adapters.PointCustomAdapter;
 import com.celeMC.tonymodbus.app.Models.ModBusPoint;
 import com.celeMC.tonymodbus.app.R;
-import com.ghgande.j2mod.modbus.ModbusException;
-import com.ghgande.j2mod.modbus.ModbusIOException;
-import com.ghgande.j2mod.modbus.ModbusSlaveException;
-import com.ghgande.j2mod.modbus.io.ModbusTCPTransaction;
-import com.ghgande.j2mod.modbus.msg.ReadMultipleRegistersRequest;
-import com.ghgande.j2mod.modbus.msg.ReadMultipleRegistersResponse;
-import com.ghgande.j2mod.modbus.msg.WriteMultipleRegistersResponse;
-import com.ghgande.j2mod.modbus.net.TCPMasterConnection;
 
+import net.wimpi.modbus.ModbusException;
+import net.wimpi.modbus.ModbusIOException;
+import net.wimpi.modbus.ModbusSlaveException;
+import net.wimpi.modbus.io.ModbusTCPTransaction;
+import net.wimpi.modbus.msg.ReadMultipleRegistersRequest;
+import net.wimpi.modbus.msg.ReadMultipleRegistersResponse;
+import net.wimpi.modbus.msg.WriteMultipleRegistersResponse;
+import net.wimpi.modbus.net.TCPMasterConnection;
+
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,11 +39,10 @@ public class GroupPointActivity extends Activity {
     volatile ModbusTCPTransaction trans = null; //the transaction
     ReadMultipleRegistersRequest regRequest = null;
     volatile ReadMultipleRegistersResponse regResponse = null;
-    TCPMasterConnection connectionGroup;
+    Boolean isConnectedToSlave = false;
     ListView userList;
     PointCustomAdapter userAdapter;
     ArrayList<ModBusPoint> pointListHelper = new ArrayList<ModBusPoint>();
-    ReadMultipleRegistersResponse rep;
     TextView headline;
     int registerOffset = 152;
 
@@ -57,7 +57,6 @@ public class GroupPointActivity extends Activity {
         headline = (TextView) findViewById(R.id.txt_listname);
         headline.setText("Group");
 
-        connectionGroup = ConnectionManager.getInstance(getApplicationContext()).getTCPconnection();
 
         pointListHelper.add(new ModBusPoint("All OFF", 0, registerOffset)); //first int is the status reg value, second is the timer address
         pointListHelper.add(new ModBusPoint("All ON", 4, registerOffset));
@@ -70,85 +69,123 @@ public class GroupPointActivity extends Activity {
         userList = (ListView) findViewById(R.id.listView);
         userList.setItemsCanFocus(false);
         userList.setAdapter(userAdapter);
-        /**
-         * get on item click listener
-         */
-        userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    final int position, long id) {
-                Log.i("List View Clicked", "**********");
-                Toast.makeText(GroupPointActivity.this,
-                        "List View Clicked:" + position, Toast.LENGTH_LONG)
-                        .show();
-            }
-        });
-
-
-        tm = new Timer();
-        readRegs = new TimerTask() {
-            @Override
-            public void run() {
-                readSentronRegisters();
-            }
-        };
 
 
     }
-        @Override
-        protected void onResume() {
-            super.onResume();
-            Log.d("cele", "Onresume");
 
-            tm = new Timer();
-            readRegs = new TimerTask() {
-                @Override
-                public void run() {
-                    readSentronRegisters();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                connectToDevice();
+
+            }
+        }).start();
+
+
+    }
+
+
+    @Override
+    protected void onPause() {
+        Log.d("cele", "Pause disconnect.");
+        closeConnection();
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onStop() {
+        Log.d("cele", "Stop disconnect.");
+        closeConnection();
+        super.onStop();
+
+    }
+
+
+    void connectToDevice() {
+
+        try {
+
+            if (!Connection.conn.isConnected()) {
+                Log.d("cele", "Connecting...");
+                Connection.conn.connect();
+
+            } else {
+                Log.d("cele", "Already connected");
+            }
+
+
+            if (Connection.conn.isConnected()) {
+                Log.d("cele", "Connected");
+
+                tm = new Timer();
+                readRegs = new TimerTask() {
+                    @Override
+                    public void run() {
+                        readSentronRegisters();
+                    }
+                };
+
+                tm.scheduleAtFixedRate(readRegs, (long) 10, (long) 1000);
+
+
+                isConnectedToSlave = true;
+            }
+
+        } catch (UnknownHostException e) {
+            Log.d("cele", "No host");
+            Log.d("cele", e.getMessage());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d("cele", "failed to Connect");
+            Log.d("cele", " l" + e.getLocalizedMessage());
+        }
+
+
+    }
+
+    void closeConnection() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                if (Connection.conn != null && Connection.conn.isConnected()) {
+                    tm.cancel();
+                    readRegs.cancel();
+                    //Connection.conn.close();
+                    Log.d("cele", "Connection closed to " + Connection.conn.getAddress());
+
+                } else {
+                    Log.d("cele", "Not connected");
+                    return;
+
                 }
-            };
-
-            tm.scheduleAtFixedRate(readRegs, (long) 100, (long) 1000);
-
-        }
 
 
-        @Override
-        protected void onPause() {
-            Log.d("cele", "Pause disconnect.");
-            // closeConnection();
-            tm.cancel();
-            Log.d("cele", "Onrpause");
-            readRegs.cancel();
-            super.onPause();
-        }
+            }
+        }).start();
 
 
-        @Override
-        protected void onStop() {
-            Log.d("cele", "Stop disconnect.");
-            //  closeConnection();
-            tm.cancel();
-            readRegs.cancel();
-            super.onStop();
-
-        }
-
+    }
 
 
     void readSentronRegisters() {
 
 
+        regRequest = new ReadMultipleRegistersRequest(registerOffset, 100);
 
-        regRequest = new ReadMultipleRegistersRequest(registerOffset, 75);
-
-        trans = new ModbusTCPTransaction(connectionGroup);
+        trans = new ModbusTCPTransaction(Connection.conn);
         trans.setRequest(regRequest);
 
         try {
 
             trans.execute();
+            Log.d("cele", trans.getTransactionID() + "");
 
         } catch (ModbusIOException e) {
             Log.d("cele", "IO error");
@@ -173,6 +210,12 @@ public class GroupPointActivity extends Activity {
                 Log.d("cele", " response is write");
             }
             regResponse = (ReadMultipleRegistersResponse) trans.getResponse();
+            if (regResponse == null) {
+                Log.d("cele", " response is NULL");
+            } else {
+                Log.d("cele", " response is NOT null");
+
+            }
 
         } catch (ClassCastException e) {
             trans.setRequest(regRequest);
@@ -185,31 +228,49 @@ public class GroupPointActivity extends Activity {
             public void run() {
 
                 refreshGUI();
-                userAdapter.notifyDataSetChanged();
             }
         });
-        //userAdapter.notifyDataSetChanged();
+
     }
 
-    private void refreshGUI(){
+    private void refreshGUI() {
 
         Log.d("cele", "External refreshed");
 
-        if(regResponse == null){
+        if (regResponse == null) {
+            for (int i = 0; i < pointListHelper.size(); i++) {
+                pointListHelper.get(i).setTimerValue(9999);
+                pointListHelper.get(i).setValue(999);
+            }
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    userAdapter.notifyDataSetChanged();
+
+                }
+            });
+
 
             Log.d("cele", "response null");
             return;
         }
-        for(int i = 0; i < pointListHelper.size(); i++){
+        for (int i = 0; i < pointListHelper.size(); i++) {
             pointListHelper.get(i).setTimerValue(regResponse.getRegisterValue((i * 4) + 2));
             pointListHelper.get(i).setValue(regResponse.getRegisterValue(i * 4));
 
         }
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                userAdapter.notifyDataSetChanged();
+
+            }
+        });
 
     }
 
 
-    }
+}
 
 
 

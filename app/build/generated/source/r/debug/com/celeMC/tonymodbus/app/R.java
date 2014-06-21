@@ -28,36 +28,40 @@ public final class R {
         public static final int timer_icon=0x7f020004;
         public static final int timer_icon_error=0x7f020005;
         public static final int timer_icon_off=0x7f020006;
+        public static final int timer_icon_touched=0x7f020007;
     }
     public static final class id {
         public static final int acs_880_txt=0x7f0a000b;
-        public static final int action_settings=0x7f0a001b;
+        public static final int action_settings=0x7f0a001e;
         public static final int btn_connect_command=0x7f0a0006;
         public static final int btn_exterior=0x7f0a0008;
         public static final int btn_groups=0x7f0a0009;
         public static final int btn_interior=0x7f0a0007;
-        public static final int btn_save_settings=0x7f0a0011;
-        public static final int btn_timer=0x7f0a0014;
-        public static final int edt_external_ip=0x7f0a000f;
-        public static final int edt_external_port=0x7f0a0010;
-        public static final int edt_internal_ip=0x7f0a000c;
-        public static final int edt_internal_port=0x7f0a000d;
-        public static final int img_state=0x7f0a0012;
-        public static final int listView=0x7f0a001a;
+        public static final int btn_save_settings=0x7f0a0014;
+        public static final int btn_timer=0x7f0a0017;
+        public static final int edt_external_ip=0x7f0a0012;
+        public static final int edt_external_port=0x7f0a0013;
+        public static final int edt_internal_ip1=0x7f0a000c;
+        public static final int edt_internal_ip2=0x7f0a000d;
+        public static final int edt_internal_ip3=0x7f0a000e;
+        public static final int edt_internal_ip4=0x7f0a000f;
+        public static final int edt_internal_port=0x7f0a0010;
+        public static final int img_state=0x7f0a0015;
+        public static final int listView=0x7f0a001d;
         public static final int listView_exterior=0x7f0a0001;
         public static final int listView_groups=0x7f0a0003;
         public static final int listView_interior=0x7f0a0005;
-        public static final int marker=0x7f0a0017;
-        public static final int marker2=0x7f0a0019;
-        public static final int sentron_txt=0x7f0a000e;
+        public static final int marker=0x7f0a001a;
+        public static final int marker2=0x7f0a001c;
+        public static final int sentron_txt=0x7f0a0011;
         public static final int txt_connstatus=0x7f0a000a;
         public static final int txt_ext_points_heading=0x7f0a0000;
-        public static final int txt_fixed_timer=0x7f0a0015;
+        public static final int txt_fixed_timer=0x7f0a0018;
         public static final int txt_grp_points_heading=0x7f0a0002;
         public static final int txt_int_points_heading=0x7f0a0004;
-        public static final int txt_listname=0x7f0a0018;
-        public static final int txt_pointname=0x7f0a0013;
-        public static final int txt_timervalue=0x7f0a0016;
+        public static final int txt_listname=0x7f0a001b;
+        public static final int txt_pointname=0x7f0a0016;
+        public static final int txt_timervalue=0x7f0a0019;
     }
     public static final class layout {
         public static final int activity_exterior_point=0x7f030000;

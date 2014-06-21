@@ -15,23 +15,20 @@ import com.celeMC.tonymodbus.app.R;
 public class Settings extends Activity {
 
 
+    // User name (make variable public to access from outside)
+    public static final String internalIP = "intIP";
+    public static final String internalPort = "intPort";
+    // Email address (make variable public to access from outside)
+    public static final String externalIP = "extIP";
+    public static final String externalPort = "extPort";
     Button btnSave;
-    EditText txtinternalIP;
+    EditText txtinternalIP1;
+    EditText txtinternalIP2;
+    EditText txtinternalIP3;
+    EditText txtinternalIP4;
     EditText txtintenalPort;
     EditText txtexternalIp;
     EditText txtexternalPort;
-
-
-    // User name (make variable public to access from outside)
-    public static final String internalIP = "intIP";
-
-    public static final String internalPort = "intPort";
-
-    // Email address (make variable public to access from outside)
-    public static final String externalIP = "extIP";
-
-    public static final String externalPort = "extPort";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +39,12 @@ public class Settings extends Activity {
         final SharedPreferences pref = getApplicationContext().getSharedPreferences(Constants.PREF, 0); // 0 - for private mode
 
 
-        txtinternalIP = (EditText) findViewById(R.id.edt_internal_ip);
+        txtinternalIP1 = (EditText) findViewById(R.id.edt_internal_ip1);
+        txtinternalIP2 = (EditText) findViewById(R.id.edt_internal_ip2);
+        txtinternalIP3 = (EditText) findViewById(R.id.edt_internal_ip3);
+        txtinternalIP4 = (EditText) findViewById(R.id.edt_internal_ip4);
+
+
         txtintenalPort = (EditText) findViewById(R.id.edt_internal_port);
 
 
@@ -51,7 +53,15 @@ public class Settings extends Activity {
 
         btnSave = (Button) findViewById(R.id.btn_save_settings);
 
-        txtinternalIP.setText(pref.getString(internalIP, Constants.DEFAULT_IP));
+
+        String intIP = pref.getString(internalIP, Constants.DEFAULT_IP);
+
+        String[] parsed = intIP.split("\\.");
+        txtinternalIP1.setText(parsed[0]);
+        txtinternalIP2.setText(parsed[1]);
+        txtinternalIP3.setText(parsed[2]);
+        txtinternalIP4.setText(parsed[3]);
+        // txtinternalIP1.setText(pref.getString(internalIP, Constants.DEFAULT_IP));
         txtintenalPort.setText(pref.getInt(internalPort, Constants.DEFAULT_PORT) + "");
 
         txtexternalIp.setText(pref.getString(externalIP, Constants.EXT_DEFAULT_IP));
@@ -65,7 +75,12 @@ public class Settings extends Activity {
                 SharedPreferences.Editor editor = pref.edit();
 
 
-                editor.putString(internalIP, txtinternalIP.getText().toString());
+                editor.putString(internalIP, (txtinternalIP1.getText().toString() + "." +
+                        txtinternalIP2.getText().toString() + "." +
+                        txtinternalIP3.getText().toString() + "." +
+                        txtinternalIP4.getText().toString()));
+
+
                 editor.putInt(internalPort, Integer.valueOf(txtintenalPort.getText().toString()));
 
                 editor.putString(externalIP, txtexternalIp.getText().toString());
@@ -79,7 +94,6 @@ public class Settings extends Activity {
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 
-                // Staring Login Activity
                 startActivity(i);
             }
         });

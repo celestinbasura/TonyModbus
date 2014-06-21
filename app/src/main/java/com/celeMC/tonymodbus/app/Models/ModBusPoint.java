@@ -16,7 +16,7 @@ public class ModBusPoint {
 
     int statusValue = 999;
 
-    int timerValue = 999;
+    int timerValue = 9999;
 
     int offset = 0;
 
