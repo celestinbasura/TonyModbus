@@ -6,6 +6,8 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,8 +30,11 @@ import net.wimpi.modbus.msg.ReadMultipleRegistersRequest;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.text.SimpleDateFormat;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 public class MainActivity extends Activity {
 
@@ -38,6 +44,7 @@ public class MainActivity extends Activity {
     Button btnExteroir;
     Button btnConnect;
     Button btnGroups;
+    ImageButton btnInfo;
     boolean isConnecting = false;
     boolean isConnected;
     boolean isHome = true;
@@ -50,6 +57,8 @@ public class MainActivity extends Activity {
     volatile ModbusTCPTransaction trans = null; //the transaction
     ReadMultipleRegistersRequest regRequest = null;
     private ProgressDialog pd;
+    String versionName;
+    String simpleDate;
 
 
     @Override
@@ -66,6 +75,24 @@ public class MainActivity extends Activity {
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         pd.setIndeterminate(true);
 
+        try {
+            versionName = getApplicationContext().getPackageManager()
+                    .getPackageInfo(getApplicationContext().getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try{
+            ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), 0);
+            ZipFile zf = new ZipFile(ai.sourceDir);
+            ZipEntry ze = zf.getEntry("classes.dex");
+            long time = ze.getTime();
+            simpleDate = SimpleDateFormat.getInstance().format(new java.util.Date(time));
+            zf.close();
+
+        }catch(Exception e){
+        }
+
 
         createConn();
         btnInteroir = (Button) findViewById(R.id.btn_interior);
@@ -73,6 +100,7 @@ public class MainActivity extends Activity {
         btnConnect = (Button) findViewById(R.id.btn_connect_command);
         btnGroups = (Button) findViewById(R.id.btn_groups);
         txtStatus = (TextView) findViewById(R.id.txt_connstatus);
+        btnInfo = (ImageButton) findViewById(R.id.btn_info);
         btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,6 +185,23 @@ public class MainActivity extends Activity {
         });
 
 
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                new AlertDialog.Builder(MainActivity.this).setTitle("Info")
+                        .setMessage("Developed by: Celestin Basura\nFor: Tony Maher\nVersion: " + versionName +
+                        "\nBuild date: " + simpleDate)
+                        .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
+            }
+
+            }
+        );
 
 
     }
