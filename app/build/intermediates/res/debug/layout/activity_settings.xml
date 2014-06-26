@@ -27,6 +27,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="0.2"
+        android:paddingTop="9dp"
         android:layout_marginTop="10sp">
 
 
@@ -86,6 +87,7 @@
             android:paddingBottom="8dp"
             android:textSize="20sp"
             android:layout_gravity="center"
+
             android:gravity="center"/>
 
 

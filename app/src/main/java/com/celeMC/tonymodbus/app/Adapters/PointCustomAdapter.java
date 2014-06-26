@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -83,13 +85,16 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         if(point.getStatusValue() == 0){
 
             holder.imgStatus.setBackgroundResource(R.drawable.light_bulb_off);
+            holder.btnEditTimer.setVisibility(View.INVISIBLE);
         }else
             if(point.getStatusValue() == 999){
 
                 holder.imgStatus.setBackgroundResource(R.drawable.light_bulb_error);
+                holder.btnEditTimer.setVisibility(View.VISIBLE);
 
             }else{
 
+                holder.btnEditTimer.setVisibility(View.VISIBLE);
             holder.imgStatus.setBackgroundResource(R.drawable.light_bulb);
         }
 
@@ -137,6 +142,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                 final EditText input = new EditText(context);
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
                 alert.setView(input);
+                final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -153,6 +159,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                             e.printStackTrace();
                         }
 
+                        imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
 
                         writeToServer(temp, point.getTimerAdr());
 
@@ -162,10 +169,17 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                 alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
+                        imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
+
                     }
                 });
 
+
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+
                 alert.show();
+
+
 
             }
         });

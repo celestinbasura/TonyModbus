@@ -7,59 +7,159 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="#ffefffee"
+   android:background="#ff1e1e1e"
     tools:context="com.celeMC.tonymodbus.app.Activities.MainActivity">
 
 
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.09"></LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.3"
+    android:orientation="horizontal">
+
+
+    <Button
+        android:id="@+id/btn_interior"
+        android:layout_width="0dp"
+        android:text="@string/interior"
+        android:layout_height="match_parent"
+        android:layout_weight="0.33"
+        android:textSize="13sp"
+
+        android:textColor="#fff7fff6"
+        android:drawableTop="@drawable/home_white"
+        android:paddingTop="20dp"
+        android:gravity="bottom|center_horizontal"
+        android:layout_margin="5dp"  />
+
+    <Button
+        android:id="@+id/btn_exterior"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.33"
+        android:layout_margin="5dp"
+        android:text="@string/exterior"
+        android:textSize="13sp"
+        android:drawableTop="@drawable/home_white"
+        android:paddingTop="20dp"
+        android:gravity="bottom|center_horizontal"
+        android:textColor="#fff7fff6"
+        android:layout_marginTop="20dp"   />
+
+    <Button
+        android:id="@+id/btn_groups"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.33"
+        android:text="@string/groups"
+        android:layout_margin="5dp"
+        android:drawableTop="@drawable/home_white"
+        android:paddingTop="20dp"
+        android:textSize="13sp"
+        android:gravity="bottom|center_horizontal"
+        android:textColor="#fff7fff6"
+
+        android:layout_marginTop="20dp"  />
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_alarms"
+            android:layout_width="0dp"
+            android:text="Alarms"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:textSize="13sp"
+            android:drawableTop="@drawable/home_white"
+            android:paddingTop="20dp"
+            android:gravity="bottom|center_horizontal"
+            android:textColor="#fff7fff6"
+
+            android:layout_margin="5dp"
+            android:layout_marginTop="20dp"   />
+
+        <Button
+            android:id="@+id/btn_all_active"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:layout_margin="5dp"
+            android:text="Activated"
+            android:drawableTop="@drawable/home_white"
+            android:paddingTop="20dp"
+            android:textSize="13sp"
+            android:gravity="bottom|center_horizontal"
+            android:textColor="#fff7fff6"
+            android:layout_marginTop="20dp"   />
+
+        <Button
+            android:id="@+id/btn_reserved"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:text="Reserved"
+            android:layout_margin="5dp"
+            android:drawableTop="@drawable/home_white"
+            android:paddingTop="20dp"
+            android:textSize="13sp"
+            android:gravity="bottom|center_horizontal"
+            android:textColor="#fff7fff6"
+
+            android:layout_marginTop="20dp"  />
+
+
+
+
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.15"
+    android:padding="0dp"
+    android:layout_margin="10dp"
+    android:background="#ff1e3f12">
 
     <Button
         android:id="@+id/btn_connect_command"
         android:text="Connect"
         android:layout_width="fill_parent"
-        android:textColor="#ff38ff84"
-        android:background="#ff367f52"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"/>
+        android:textColor="#fff7fff6"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        />
 
+</LinearLayout>
 
-    <Button
-        android:id="@+id/btn_interior"
-        android:layout_width="fill_parent"
-        android:text="@string/interior"
-        android:textSize="35sp"
-        android:layout_height="80dp"
-        android:textColor="#ff38ff84"
-        android:background="#ff367f52"
-        android:layout_marginTop="20dp"   />
-
-    <Button
-        android:id="@+id/btn_exterior"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:text="@string/exterior"
-        android:textSize="35sp"
-        android:textColor="#ff38ff84"
-        android:background="#ff367f52"
-        android:layout_marginTop="20dp"   />
-
-    <Button
-        android:id="@+id/btn_groups"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:text="@string/groups"
-        android:textSize="35sp"
-        android:textColor="#ff38ff84"
-        android:background="#ff367f52"
-        android:layout_marginTop="20dp"  />
     <TextView
         android:layout_width="fill_parent"
         android:id="@+id/txt_connstatus"
         android:text="Press Connect"
         android:textSize="15sp"
         android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:height="40dp"
-        android:layout_height="wrap_content" />
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="5dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.15" />
 
 
     <LinearLayout
@@ -73,8 +173,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.4"></LinearLayout>
         <ImageButton
-            android:layout_width="0dp"
-            android:layout_weight="0.11"
+            android:layout_width="40dp"
             android:layout_height="40dp"
             android:id="@+id/btn_info"
             android:background="@drawable/get_info"
