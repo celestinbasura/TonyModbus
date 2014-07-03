@@ -2,149 +2,149 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/celestinbasura/TonyModbus/app/src/main/res" >
+        <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res" >
             <file
                 name="ic_launcher"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-hdpi/ic_launcher.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-hdpi/ic_launcher.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-mdpi/ic_launcher.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-mdpi/ic_launcher.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xhdpi/ic_launcher.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="get_info"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/get_info.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/get_info.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="home_white"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/home_white.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/home_white.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="light_bulb"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="light_bulb_error"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_error.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_error.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="light_bulb_off"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_off.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/light_bulb_off.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="timer_icon"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="timer_icon_error"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon_error.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon_error.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="timer_icon_off"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon_off.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon_off.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="timer_icon_touched"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon_touched.png"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/timer_icon_touched.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="activity_exterior_point"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_exterior_point.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_exterior_point.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="activity_group_point"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_group_point.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_group_point.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="activity_interior_point"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_interior_point.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_interior_point.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="activity_list_activity_test"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_list_activity_test.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_list_activity_test.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="activity_main"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_main.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_main.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="activity_settings"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/activity_settings.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_settings.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="list_item"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/list_item.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/list_item.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="pointlist"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/layout/pointlist.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/pointlist.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="exterior_point"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/exterior_point.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/exterior_point.xml"
                 qualifiers=""
                 type="menu" />
             <file
                 name="group_point"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/group_point.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/group_point.xml"
                 qualifiers=""
                 type="menu" />
             <file
                 name="interior_point"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/interior_point.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/interior_point.xml"
                 qualifiers=""
                 type="menu" />
             <file
                 name="list_activity_new"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/list_activity_new.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/list_activity_new.xml"
                 qualifiers=""
                 type="menu" />
             <file
                 name="list_activity_test"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/list_activity_test.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/list_activity_test.xml"
                 qualifiers=""
                 type="menu" />
             <file
                 name="main"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/main.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/main.xml"
                 qualifiers=""
                 type="menu" />
             <file
                 name="settings"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/menu/settings.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/settings.xml"
                 qualifiers=""
                 type="menu" />
             <file
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/values/dimens.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/dimens.xml"
                 qualifiers="" >
                 <dimen name="activity_vertical_margin" >16dp
                 </dimen>
@@ -152,7 +152,7 @@
                 </dimen>
             </file>
             <file
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/values/strings.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/strings.xml"
                 qualifiers="" >
                 <string name="hello_world" >Hello world!
                 </string>
@@ -184,7 +184,7 @@
                 </string>
             </file>
             <file
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/values/strings_activity_settings.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/strings_activity_settings.xml"
                 qualifiers="" >
                 <string name="pref_header_notifications" >Notifications
                 </string>
@@ -288,7 +288,7 @@ Never
                 </string>
             </file>
             <file
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/values/styles.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/styles.xml"
                 qualifiers="" >
 
                 <style
@@ -299,37 +299,37 @@ Never
                 </style>
             </file>
             <file
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/values-w820dp/dimens.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values-w820dp/dimens.xml"
                 qualifiers="w820dp-v13" >
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
             <file
                 name="pref_data_sync"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/xml/pref_data_sync.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/xml/pref_data_sync.xml"
                 qualifiers=""
                 type="xml" />
             <file
                 name="pref_general"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/xml/pref_general.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/xml/pref_general.xml"
                 qualifiers=""
                 type="xml" />
             <file
                 name="pref_headers"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/xml/pref_headers.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/xml/pref_headers.xml"
                 qualifiers=""
                 type="xml" />
             <file
                 name="pref_notification"
-                path="/Users/celestinbasura/TonyModbus/app/src/main/res/xml/pref_notification.xml"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/xml/pref_notification.xml"
                 qualifiers=""
                 type="xml" />
         </source>
-        <source path="/Users/celestinbasura/TonyModbus/app/build/generated/res/rs/debug" />
-        <source path="/Users/celestinbasura/TonyModbus/app/build/generated/res/generated/debug" />
+        <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/rs/debug" />
+        <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/generated/debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/celestinbasura/TonyModbus/app/src/debug/res" />
+        <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/debug/res" />
     </dataSet>
 
 </merger>

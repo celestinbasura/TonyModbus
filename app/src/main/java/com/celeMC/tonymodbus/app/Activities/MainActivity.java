@@ -44,6 +44,9 @@ public class MainActivity extends Activity {
     Button btnExteroir;
     Button btnConnect;
     Button btnGroups;
+    Button btnAlarms;
+    Button btnActivated;
+    Button btnReserved;
     ImageButton btnInfo;
     boolean isConnecting = false;
     boolean isConnected;
@@ -60,6 +63,7 @@ public class MainActivity extends Activity {
     String versionName;
     String simpleDate;
 
+    boolean isExceptionActive = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +105,9 @@ public class MainActivity extends Activity {
         btnGroups = (Button) findViewById(R.id.btn_groups);
         txtStatus = (TextView) findViewById(R.id.txt_connstatus);
         btnInfo = (ImageButton) findViewById(R.id.btn_info);
+        btnAlarms = (Button) findViewById(R.id.btn_alarms);
+        btnActivated = (Button) findViewById(R.id.btn_all_active);
+        btnReserved = (Button) findViewById(R.id.btn_reserved);
         btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +115,8 @@ public class MainActivity extends Activity {
 
                 if (!Connection.conn.isConnected()) {
 
-                    Toast.makeText(getApplicationContext(), "Connecting...", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(getApplicationContext(), "Connecting...", Toast.LENGTH_SHORT).show();
+                    txtStatus.setText(" Connecting...");
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -121,7 +129,7 @@ public class MainActivity extends Activity {
                 } else {
 
                     closeConnection();
-                    Toast.makeText(getApplicationContext(), "Disconnected", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(), "Disconnected", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -203,6 +211,32 @@ public class MainActivity extends Activity {
             }
         );
 
+        btnAlarms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Not Implemented yet", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+        btnActivated.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Not Implemented yet", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+        btnReserved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Not Implemented yet", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
 
     }
 
@@ -384,7 +418,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
                             pd.dismiss();
-                            Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -464,17 +498,29 @@ public class MainActivity extends Activity {
             try {
 
                 trans.execute();
+                isExceptionActive = false;
 
 
             } catch (ModbusIOException e) {
                 Log.d("cele", "IO error");
+                isExceptionActive = true;
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
 
+                        txtStatus.setText(" Server IO error\nPlease reconnect");
+
+                    }
+                });
+
+                closeConnection();
                 e.printStackTrace();
             } catch (ModbusSlaveException e) {
 
                 Log.d("cele", "Slave returned exception");
                 e.printStackTrace();
             } catch (ModbusException e) {
+
                 Log.d("cele", "Failed to execute request");
 
                 e.printStackTrace();
@@ -495,14 +541,20 @@ public class MainActivity extends Activity {
         isConnected = Connection.conn.isConnected();
         Log.d("cele", " read");
 
-        if (isConnected && trans.getResponse() != null) {
+        if (isConnected) {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
 
 
                     btnConnect.setText("Disconnect");
-                    txtStatus.setText(" Connected to Server\n Response time: " + (System.currentTimeMillis() - time) + "ms");
+
+                  if(!isExceptionActive){
+
+                      txtStatus.setText(" Connected to Server\n Response time: " + (System.currentTimeMillis() - time) + "ms");
+                  }
+
+
 
 
                 }
@@ -523,6 +575,7 @@ public class MainActivity extends Activity {
 
 
         }
+
 
 
     }
