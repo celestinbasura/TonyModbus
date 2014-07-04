@@ -42,6 +42,14 @@
             android:name="com.celeMC.tonymodbus.app.Activities.Settings"
             android:label="@string/title_activity_settings" >
         </activity>
+        <activity
+            android:name="com.celeMC.tonymodbus.app.Activities.AlarmsActivity"
+            android:label="@string/title_activity_alarms" >
+        </activity>
+        <activity
+            android:name="com.celeMC.tonymodbus.app.Activities.AllLightsOnActivity"
+            android:label="@string/title_activity_all_lights_on" >
+        </activity>
     </application>
 
 </manifest>

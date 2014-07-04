@@ -21,6 +21,7 @@ public class Settings extends Activity {
     // Email address (make variable public to access from outside)
     public static final String externalIP = "extIP";
     public static final String externalPort = "extPort";
+    public static final String externalSSID = "extSSID";
     Button btnSave;
     EditText txtinternalIP1;
     EditText txtinternalIP2;
@@ -29,6 +30,7 @@ public class Settings extends Activity {
     EditText txtintenalPort;
     EditText txtexternalIp;
     EditText txtexternalPort;
+    EditText txtexternalSSID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class Settings extends Activity {
 
         txtexternalIp = (EditText) findViewById(R.id.edt_external_ip);
         txtexternalPort = (EditText) findViewById(R.id.edt_external_port);
+        txtexternalSSID = (EditText) findViewById(R.id.edt_external_ssid_name);
 
         btnSave = (Button) findViewById(R.id.btn_save_settings);
 
@@ -66,6 +69,7 @@ public class Settings extends Activity {
 
         txtexternalIp.setText(pref.getString(externalIP, Constants.EXT_DEFAULT_IP));
         txtexternalPort.setText(pref.getInt(externalPort, Constants.EXT_DEFAULT_PORT) + "");
+        txtexternalSSID.setText(pref.getString(externalSSID, Constants.EXT_DEFAULT_SSID));
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +89,7 @@ public class Settings extends Activity {
 
                 editor.putString(externalIP, txtexternalIp.getText().toString());
                 editor.putInt(externalPort, Integer.valueOf(txtexternalPort.getText().toString()));
+                editor.putString(externalSSID, txtexternalSSID.getText().toString());
 
                 editor.commit();
                 Toast.makeText(getBaseContext(), "Saved", Toast.LENGTH_SHORT).show();

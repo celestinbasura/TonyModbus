@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.celeMC.tonymodbus.app.Adapters.PointCustomAdapter;
 import com.celeMC.tonymodbus.app.Models.ModBusPoint;
@@ -209,6 +210,15 @@ public class ExteriorPointActivity extends Activity {
             Log.d("cele", trans.getTransactionID() + "");
 
         } catch (ModbusIOException e) {
+
+
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+
+                    Toast.makeText(getApplicationContext(), "Server IO error", Toast.LENGTH_SHORT).show();
+                }
+            });
             Log.d("cele", "IO error");
 
             e.printStackTrace();

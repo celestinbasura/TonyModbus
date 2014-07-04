@@ -214,7 +214,16 @@ public class MainActivity extends Activity {
         btnAlarms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Not Implemented yet", Toast.LENGTH_SHORT).show();
+                Log.d("cele", "clickled");
+
+                if (Connection.conn.isConnected()) {
+                    Intent AlarmsIntent = new Intent(MainActivity.this, AlarmsActivity.class);
+                    startActivity(AlarmsIntent);
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Not connected", Toast.LENGTH_SHORT).show();
+                }
 
 
             }
@@ -223,16 +232,24 @@ public class MainActivity extends Activity {
         btnActivated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Not Implemented yet", Toast.LENGTH_SHORT).show();
+                Log.d("cele", "clickled");
+
+                if (Connection.conn.isConnected()) {
+                    Intent AllOnIntent = new Intent(MainActivity.this, AllLightsOnActivity.class);
+                    startActivity(AllOnIntent);
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Not connected", Toast.LENGTH_SHORT).show();
+                }
 
 
             }
         });
-
         btnReserved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Not Implemented yet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Reserved for future use", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -582,20 +599,35 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this).setTitle("Exit Application")
-                .setMessage("Connection will be dropped if active, \nare you sure?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
-                        tm.cancel();
-                        readRegs.cancel();
-                        closeConnection();
-                        tm.cancel();
-                        readRegs.cancel();
-                        finish();
-                    }
-                }).setNegativeButton("No", null).show();
+        if(!Connection.conn.isConnected()){
+            tm.cancel();
+            readRegs.cancel();
+            closeConnection();
+            tm.cancel();
+            readRegs.cancel();
+            finish();
+
+        }else{
+
+
+            new AlertDialog.Builder(this).setTitle("Exit Application")
+                    .setMessage("Connection will be dropped if active, \nare you sure?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            tm.cancel();
+                            readRegs.cancel();
+                            closeConnection();
+                            tm.cancel();
+                            readRegs.cancel();
+                            finish();
+                        }
+                    }).setNegativeButton("No", null).show();
+
+        }
+
     }
 
 }

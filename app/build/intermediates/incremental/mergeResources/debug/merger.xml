@@ -156,6 +156,8 @@
                 qualifiers="" >
                 <string name="hello_world" >Hello world!
                 </string>
+                <string name="title_activity_alarms" >Alarms
+                </string>
                 <string name="action_connect" >Connect
                 </string>
                 <string name="title_activity_list_activity_test" >ListActivityTest
@@ -179,6 +181,8 @@
                 <string name="title_activity_group_point" >GroupPointActivity
                 </string>
                 <string name="tgl_btn" >Toggle
+                </string>
+                <string name="title_activity_all_lights_on" >AllLightsOnActivity
                 </string>
                 <string name="exterior" >Exterior
                 </string>
@@ -324,6 +328,26 @@ Never
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/xml/pref_notification.xml"
                 qualifiers=""
                 type="xml" />
+            <file
+                name="alarms"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/alarms.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="activity_alarms"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_alarms.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_all_lights_on"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_all_lights_on.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="all_lights_on"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/all_lights_on.xml"
+                qualifiers=""
+                type="menu" />
         </source>
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/rs/debug" />
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/generated/debug" />

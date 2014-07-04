@@ -11,6 +11,7 @@ public class Constants {
 
     public static String EXT_DEFAULT_IP = "192.168.0.1";
     public static int EXT_DEFAULT_PORT = 5020;
+    public static String EXT_DEFAULT_SSID = "Home";
 
     public static String PREF = "ModBusPrefs";
 

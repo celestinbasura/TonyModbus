@@ -92,6 +92,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                 holder.imgStatus.setBackgroundResource(R.drawable.light_bulb_error);
                 holder.btnEditTimer.setVisibility(View.VISIBLE);
 
+
             }else{
 
                 holder.btnEditTimer.setVisibility(View.VISIBLE);

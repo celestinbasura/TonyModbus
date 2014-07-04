@@ -218,6 +218,16 @@ public class InteriorPointActivity extends Activity {
             Log.d("cele", trans.getTransactionID() + "");
 
         } catch (ModbusIOException e) {
+
+
+
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+
+                    Toast.makeText(getApplicationContext(), "Server IO error", Toast.LENGTH_SHORT).show();
+                }
+            });
             Log.d("cele", "IO error");
 
             e.printStackTrace();
