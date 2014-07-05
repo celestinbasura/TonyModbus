@@ -203,7 +203,7 @@ public class InteriorPointActivity extends Activity {
 
     void readSentronRegisters() {
 
-        if (isWriting) {
+        if (isWriting || userAdapter.isWriting) {
             return;
         }
 

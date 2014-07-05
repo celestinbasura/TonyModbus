@@ -103,11 +103,11 @@ public class AllLightsOnActivity extends Activity {
         pointListHelperExt.add(new ModBusPoint("Rear Outside Left", 44, registerOffsetExt));
         pointListHelperExt.add(new ModBusPoint("Rear Outside Back", 48, registerOffsetExt));
         pointListHelperExt.add(new ModBusPoint("Rear Outside Right", 52, registerOffsetExt));
-        
-        
-        
-        
-        
+
+
+
+
+
         userAdapter = new PointCustomAdapter(AllLightsOnActivity.this, R.layout.list_item, pointListHelperOn);
         userList = (ListView) findViewById(R.id.listView);
         userList.setItemsCanFocus(false);
@@ -388,6 +388,9 @@ public class AllLightsOnActivity extends Activity {
         if(pointListHelperOn.size() == 0){
 
             headline.setText("No lights ON");
+
+        }else{
+            headline.setText("Lights ON");
 
 
         }

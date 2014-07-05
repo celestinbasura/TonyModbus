@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,6 +41,8 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
     int layoutResourceId;
     ModbusTCPTransaction trans = null;
     ArrayList<ModBusPoint> data = new ArrayList<ModBusPoint>();
+    private Vibrator myVib;
+    public boolean isWriting = false;
 
     public PointCustomAdapter(Context context, int layoutResourceId,
                              ArrayList<ModBusPoint> data) {
@@ -47,6 +50,8 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.data = data;
+        myVib = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+
 
     }
 
@@ -121,6 +126,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
             public void onClick(View v) {
 
 
+                myVib.vibrate(50);
                 writeToServer(1, point.getControlAdr());
 
 
@@ -202,6 +208,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
             @Override
             public void run() {
 
+                isWriting = true;
 
                 SimpleRegister sr = new SimpleRegister();
                 sr = new SimpleRegister(value);
@@ -223,6 +230,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                     e.printStackTrace();
                 }
 
+                isWriting = false;
             }
 
 

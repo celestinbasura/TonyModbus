@@ -69,6 +69,16 @@
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
+                name="activity_alarms"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_alarms.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_all_lights_on"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_all_lights_on.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="activity_exterior_point"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_exterior_point.xml"
                 qualifiers=""
@@ -108,6 +118,16 @@
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/pointlist.xml"
                 qualifiers=""
                 type="layout" />
+            <file
+                name="alarms"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/alarms.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="all_lights_on"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/all_lights_on.xml"
+                qualifiers=""
+                type="menu" />
             <file
                 name="exterior_point"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/exterior_point.xml"
@@ -328,26 +348,6 @@ Never
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/xml/pref_notification.xml"
                 qualifiers=""
                 type="xml" />
-            <file
-                name="alarms"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/alarms.xml"
-                qualifiers=""
-                type="menu" />
-            <file
-                name="activity_alarms"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_alarms.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="activity_all_lights_on"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_all_lights_on.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="all_lights_on"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/all_lights_on.xml"
-                qualifiers=""
-                type="menu" />
         </source>
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/rs/debug" />
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/generated/debug" />
