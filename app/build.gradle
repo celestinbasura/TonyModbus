@@ -23,6 +23,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('src/main/java/libs/jamod-1.2-SNAPSHOT.jar')
     compile files('src/main/java/libs/j2mod-0.96.jar')
+
+
 }
 
 

@@ -7,17 +7,5 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="fb543826072663fb91a508d07b63fb4bd1e034f2"/>
-    <item
-        dex="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/intermediates/pre-dexed/debug/library-2.6.0-212fc0d369d3baa6acebeba1384f21f201992aa0.jar"
-        jar="/Users/celestinbasura/.gradle/caches/modules-2/files-2.1/com.nhaarman.listviewanimations/library/2.6.0/59351ccb0a1631d30358f6a92749a072f2df7602/library-2.6.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="59351ccb0a1631d30358f6a92749a072f2df7602"/>
-    <item
-        dex="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/intermediates/pre-dexed/debug/library-2.4.0-7a0185cbab92f2f34e9d179e530727a4d51d256e.jar"
-        jar="/Users/celestinbasura/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb"/>
 
 </pre-dex-items>

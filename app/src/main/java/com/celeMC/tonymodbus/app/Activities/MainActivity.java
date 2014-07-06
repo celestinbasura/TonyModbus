@@ -3,11 +3,15 @@ package com.celeMC.tonymodbus.app.Activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -35,11 +39,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import static android.text.format.Formatter.formatIpAddress;
 
 public class MainActivity extends Activity {
 
 
     TextView txtStatus;
+    TextView txtPhoneIP;
     Button btnInteroir;
     Button btnExteroir;
     Button btnConnect;
@@ -62,6 +68,11 @@ public class MainActivity extends Activity {
     private ProgressDialog pd;
     String versionName;
     String simpleDate;
+
+    android.net.NetworkInfo mobile = null;
+    android.net.NetworkInfo wifi = null;
+    WifiManager wifiManager = null;
+    ConnectivityManager connMgr = null;
 
     boolean isExceptionActive = false;
 
@@ -98,16 +109,29 @@ public class MainActivity extends Activity {
         }
 
 
+
         createConn();
         btnInteroir = (Button) findViewById(R.id.btn_interior);
         btnExteroir = (Button) findViewById(R.id.btn_exterior);
         btnConnect = (Button) findViewById(R.id.btn_connect_command);
         btnGroups = (Button) findViewById(R.id.btn_groups);
         txtStatus = (TextView) findViewById(R.id.txt_connstatus);
+        txtPhoneIP = (TextView) findViewById(R.id.txt_phone_ip);
         btnInfo = (ImageButton) findViewById(R.id.btn_info);
         btnAlarms = (Button) findViewById(R.id.btn_alarms);
         btnActivated = (Button) findViewById(R.id.btn_all_active);
         btnReserved = (Button) findViewById(R.id.btn_reserved);
+
+
+
+        wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        connMgr = (ConnectivityManager) this.getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
+
+        mobile = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+
+
+
         btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,6 +145,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
 
+                            createConn();
                             connect();
 
                         }
@@ -333,28 +358,32 @@ public class MainActivity extends Activity {
 
     void createConn() {
 
-        final String currentIP;
-        final int currentPort;
-
-        if (isHome) {
-
-            currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
-            currentPort = sharedPreferences.getInt(Settings.internalPort, Constants.DEFAULT_PORT);
-
-        } else {
-            currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
-            currentPort = sharedPreferences.getInt(Settings.externalPort, Constants.EXT_DEFAULT_PORT);
-
-        }
 
 
         new Thread(new Runnable() {
             @Override
             public void run() {
 
+
+                String currentIP;
+                int currentPort;
+
+                if (isHome()) {
+
+                    currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
+                    currentPort = sharedPreferences.getInt(Settings.internalPort, Constants.DEFAULT_PORT);
+
+                } else {
+                    currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
+                    currentPort = sharedPreferences.getInt(Settings.externalPort, Constants.EXT_DEFAULT_PORT);
+
+                }
+
                 InetAddress address = null;
                 try {
+
                     address = InetAddress.getByName(currentIP);
+                    //address = InetAddress.getByName("AFMaher.duckdns.org");
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
                 }
@@ -393,6 +422,36 @@ public class MainActivity extends Activity {
                                 pd.show();
                             }
                         });
+
+                        String currentIP;
+                        int currentPort;
+
+                        if (isHome()) {
+
+                            currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
+                            currentPort = sharedPreferences.getInt(Settings.internalPort, Constants.DEFAULT_PORT);
+
+                        } else {
+                            currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
+                            currentPort = sharedPreferences.getInt(Settings.externalPort, Constants.EXT_DEFAULT_PORT);
+
+                        }
+
+                        InetAddress address = null;
+                        try {
+
+                            address = InetAddress.getByName(currentIP);
+                            //address = InetAddress.getByName("AFMaher.duckdns.org");
+                        } catch (UnknownHostException e) {
+                            e.printStackTrace();
+                        }
+
+
+                        Connection.conn.setAddress(address);
+                        Connection.conn.setPort(currentPort);
+
+
+
                         Connection.conn.connect();
                         Connection.conn.setTimeout(40000);
 
@@ -489,10 +548,71 @@ public class MainActivity extends Activity {
 
     }
 
+
+
+    //returns 0 if no connection, 1 if Wifi and 2 if 3G is connected
+
+    private int checkAvailableConnection() {
+        connMgr = (ConnectivityManager) this.getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
+        wifi = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        mobile = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+
+        if (wifi.isAvailable() && wifi.isConnectedOrConnecting()) {
+            return 1;
+
+        }if (mobile.isAvailable() && mobile.isConnectedOrConnecting()) {
+            return 2;
+        }
+
+        return 0;
+    }
+
+    private String getLocalIpAddress() {
+        WifiManager wifiManager = (WifiManager) this.getSystemService(getApplicationContext().WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        int ipAddr = wifiInfo.getIpAddress();
+        return formatIpAddress(ipAddr);
+    }
+
+
+    private String getWifiName() {
+        String ssid = "none";
+        WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        if (true//WifiInfo.getDetailedStateOf(wifiInfo.getSupplicantState()) == NetworkInfo.DetailedState.CONNECTED
+                ) {
+            ssid = wifiInfo.getSSID();
+        }
+        Log.d("cele", " SSID " + ssid);
+        //Toast.makeText(getApplicationContext(), "SSID is " + ssid, Toast.LENGTH_SHORT).show();
+        return ssid;
+    }
+
+
+
     boolean isHome() {
 
+        if (checkAvailableConnection() == 1) {
+            String name = sharedPreferences.getString(Settings.externalSSID, Constants.EXT_DEFAULT_SSID);
+            String wiFiName = getWifiName();
+            if (name.equals(wiFiName.substring(1, wiFiName.length()-1))) {
 
-        return true;
+                return true;
+            } else {
+
+
+            }
+
+        } else {
+
+
+            //TODO Home detection
+
+            return false;
+        }
+
+        return false;
     }
 
 
@@ -555,6 +675,7 @@ public class MainActivity extends Activity {
     void refreshScreen() {
 
 
+
         isConnected = Connection.conn.isConnected();
         Log.d("cele", " read");
 
@@ -563,6 +684,19 @@ public class MainActivity extends Activity {
                 @Override
                 public void run() {
 
+                    if(checkAvailableConnection() == 1){
+                        txtPhoneIP.setText("Phone IP is " + getLocalIpAddress()  + " on " + getWifiName() + "\n Home: " + isHome());
+                    }else{
+
+                        if(checkAvailableConnection() == 2){
+                            txtPhoneIP.setText("Phone connected to mobile network");
+                        }else{
+                            txtPhoneIP.setText("Phone not connected");
+
+
+                        }
+
+                    }
 
                     btnConnect.setText("Disconnect");
 
@@ -583,6 +717,23 @@ public class MainActivity extends Activity {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
+
+
+                    if(checkAvailableConnection() == 1){
+                        txtPhoneIP.setText("Phone IP is " + getLocalIpAddress() + " on " + getWifiName() + "\n Home: " + isHome());
+                    }else{
+
+                        if(checkAvailableConnection() == 2){
+                            txtPhoneIP.setText("Phone connected to mobile network");
+                        }else{
+                            txtPhoneIP.setText("Phone not connected");
+
+
+                        }
+
+
+                    }
+
 
                     btnConnect.setText("Connect");
                     txtStatus.setText(" Not Connected to Server");
