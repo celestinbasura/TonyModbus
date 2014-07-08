@@ -144,7 +144,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                 AlertDialog.Builder alert = new AlertDialog.Builder(context);
 
                 alert.setTitle("Set Timer Value");
-                alert.setMessage("Enter the timer value");
+                alert.setMessage("Enter the timer value in seconds");
 
                 final EditText input = new EditText(context);
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);

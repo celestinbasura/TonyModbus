@@ -15,10 +15,10 @@ import com.celeMC.tonymodbus.app.R;
 public class Settings extends Activity {
 
 
-    // User name (make variable public to access from outside)
     public static final String internalIP = "intIP";
     public static final String internalPort = "intPort";
-    // Email address (make variable public to access from outside)
+
+
     public static final String externalIP = "extIP";
     public static final String externalPort = "extPort";
     public static final String externalSSID = "extSSID";

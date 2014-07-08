@@ -21,16 +21,25 @@ public final class R {
         public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
-        public static final int get_info=0x7f020000;
-        public static final int home_white=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int light_bulb=0x7f020003;
-        public static final int light_bulb_error=0x7f020004;
-        public static final int light_bulb_off=0x7f020005;
-        public static final int timer_icon=0x7f020006;
-        public static final int timer_icon_error=0x7f020007;
-        public static final int timer_icon_off=0x7f020008;
-        public static final int timer_icon_touched=0x7f020009;
+        public static final int button_bg_normal=0x7f020000;
+        public static final int button_bg_pressed=0x7f020001;
+        public static final int button_bg_selected=0x7f020002;
+        public static final int button_green_normal=0x7f020003;
+        public static final int button_green_press=0x7f020004;
+        public static final int button_green_sel=0x7f020005;
+        public static final int button_green_selected=0x7f020006;
+        public static final int button_selector=0x7f020007;
+        public static final int get_info=0x7f020008;
+        public static final int home_white=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int light_bulb=0x7f02000b;
+        public static final int light_bulb_error=0x7f02000c;
+        public static final int light_bulb_off=0x7f02000d;
+        public static final int list_background=0x7f02000e;
+        public static final int timer_icon=0x7f02000f;
+        public static final int timer_icon_error=0x7f020010;
+        public static final int timer_icon_off=0x7f020011;
+        public static final int timer_icon_touched=0x7f020012;
     }
     public static final class id {
         public static final int acs_880_txt=0x7f0a0010;

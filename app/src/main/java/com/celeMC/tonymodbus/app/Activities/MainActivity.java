@@ -2,6 +2,9 @@ package com.celeMC.tonymodbus.app.Activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,11 +12,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -69,6 +74,9 @@ public class MainActivity extends Activity {
     String versionName;
     String simpleDate;
 
+    public static final int NOTIFICATION_ID = 1;
+    private NotificationManager mNotificationManager;
+
     android.net.NetworkInfo mobile = null;
     android.net.NetworkInfo wifi = null;
     WifiManager wifiManager = null;
@@ -81,6 +89,7 @@ public class MainActivity extends Activity {
 
         super.onCreate(savedInstanceState);
 
+        clearNotification();
         setContentView(R.layout.activity_main);
         sharedPreferences = getApplicationContext().getSharedPreferences(Constants.PREF, 0); // 0 - for private mode
         pd = new ProgressDialog(MainActivity.this);
@@ -274,7 +283,33 @@ public class MainActivity extends Activity {
         btnReserved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Reserved for future use", Toast.LENGTH_SHORT).show();
+
+
+
+
+                Intent intent = new Intent(MainActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+                PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+                mNotificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(getApplicationContext())
+                                .setSmallIcon(R.drawable.light_bulb)
+                                .setPriority(Notification.PRIORITY_HIGH)
+                                .setLights(0xff0000ff, 2000, 2000)
+                                .setContentTitle("TonyMODBUS Demo")
+                                .setStyle(new NotificationCompat.BigTextStyle().bigText("This is demo for alarms"))
+                                .setContentText("someyhing")
+                                .setTicker("Alarm activated")
+                                .setAutoCancel(true)
+
+                                .setSound(android.provider.Settings.System.DEFAULT_NOTIFICATION_URI);
+
+
+                mBuilder.setContentIntent(contentIntent);
+                mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 
 
             }
@@ -297,11 +332,18 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
 
+                        if(Connection.conn != null){
+
+
+
                         if(Connection.conn.isConnected()){
                             readRegs();
                         }
 
                         refreshScreen();
+                    }else{
+                        return;
+                        }
                     }
                 }).start();
 
@@ -607,8 +649,6 @@ public class MainActivity extends Activity {
         } else {
 
 
-            //TODO Home detection
-
             return false;
         }
 
@@ -780,6 +820,13 @@ public class MainActivity extends Activity {
         }
 
     }
+
+    private void clearNotification()
+    {
+        mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.cancel(NOTIFICATION_ID);
+    }
+
 
 }
 

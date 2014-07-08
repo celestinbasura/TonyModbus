@@ -185,7 +185,7 @@ public class InteriorPointActivity extends Activity {
                     tm.cancel();
                     readRegs.cancel();
                     //Connection.conn.close();
-                    Log.d("cele", "Connection closed to " + Connection.conn.getAddress());
+                    //Log.d("cele", "Connection closed to " + Connection.conn.getAddress());
 
                 } else {
                     Log.d("cele", "Not connected");
