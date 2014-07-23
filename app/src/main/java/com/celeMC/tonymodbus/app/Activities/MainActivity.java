@@ -62,6 +62,7 @@ public class MainActivity extends Activity {
     boolean isConnecting = false;
     boolean isConnected;
     boolean isHome = true;
+    private boolean doubleBackToExitPressedOnce;
     Long time;
     long lastResponseTime;
     Handler handler = new Handler();
@@ -286,36 +287,57 @@ public class MainActivity extends Activity {
 
 
 
+//
+//                Intent intent = new Intent(MainActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//
+//                PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//
+//                mNotificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//                NotificationCompat.Builder mBuilder =
+//                        new NotificationCompat.Builder(getApplicationContext())
+//                                .setSmallIcon(R.drawable.light_bulb)
+//                                .setPriority(Notification.PRIORITY_HIGH)
+//                                .setLights(0xff0000ff, 2000, 2000)
+//                                .setContentTitle("TonyMODBUS Demo")
+//                                .setStyle(new NotificationCompat.BigTextStyle().bigText("This is demo for alarms"))
+//                                .setContentText("someyhing")
+//                                .setTicker("Alarm activated")
+//                                .setAutoCancel(true)
+//
+//                                .setSound(android.provider.Settings.System.DEFAULT_NOTIFICATION_URI);
+//
+//
+//                mBuilder.setContentIntent(contentIntent);
+//                mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+//
+//
+                Log.d("cele", "clickled");
 
-                Intent intent = new Intent(MainActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                if (Connection.conn.isConnected()) {
+                    Intent intent = new Intent(MainActivity.this, Garden.class);
+                    startActivity(intent);
 
-                PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                } else {
 
-
-                mNotificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-
-                NotificationCompat.Builder mBuilder =
-                        new NotificationCompat.Builder(getApplicationContext())
-                                .setSmallIcon(R.drawable.light_bulb)
-                                .setPriority(Notification.PRIORITY_HIGH)
-                                .setLights(0xff0000ff, 2000, 2000)
-                                .setContentTitle("TonyMODBUS Demo")
-                                .setStyle(new NotificationCompat.BigTextStyle().bigText("This is demo for alarms"))
-                                .setContentText("someyhing")
-                                .setTicker("Alarm activated")
-                                .setAutoCancel(true)
-
-                                .setSound(android.provider.Settings.System.DEFAULT_NOTIFICATION_URI);
-
-
-                mBuilder.setContentIntent(contentIntent);
-                mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+                    Toast.makeText(getApplicationContext(), "Not connected", Toast.LENGTH_SHORT).show();
+                }
 
 
             }
-        });
+       });
+
+
+        if(isHome() && checkAvailableConnection() == 1){
+
+            connect();
+            Toast.makeText(getApplicationContext(), "Connecting automatically to Home network", Toast.LENGTH_SHORT).show();
+        }
+
 
     }
+
 
 
     @Override
@@ -356,6 +378,12 @@ public class MainActivity extends Activity {
 
     }
 
+    private final Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            doubleBackToExitPressedOnce = false;
+        }
+    };
 
     @Override
     protected void onPause() {
@@ -364,6 +392,14 @@ public class MainActivity extends Activity {
         readRegs.cancel();
 
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+
+        if (handler != null) { handler.removeCallbacks(mRunnable); }
     }
 
 
@@ -739,6 +775,7 @@ public class MainActivity extends Activity {
                     }
 
                     btnConnect.setText("Disconnect");
+                    btnConnect.setBackgroundResource(R.drawable.button_red_sel);
 
                   if(!isExceptionActive){
 
@@ -776,6 +813,7 @@ public class MainActivity extends Activity {
 
 
                     btnConnect.setText("Connect");
+                    btnConnect.setBackgroundResource(R.drawable.button_green_sel);
                     txtStatus.setText(" Not Connected to Server");
 
                 }
@@ -788,43 +826,69 @@ public class MainActivity extends Activity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-
-        if(!Connection.conn.isConnected()){
-            tm.cancel();
-            readRegs.cancel();
-            closeConnection();
-            tm.cancel();
-            readRegs.cancel();
-            finish();
-
-        }else{
-
-
-            new AlertDialog.Builder(this).setTitle("Exit Application")
-                    .setMessage("Connection will be dropped if active, \nare you sure?")
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            tm.cancel();
-                            readRegs.cancel();
-                            closeConnection();
-                            tm.cancel();
-                            readRegs.cancel();
-                            finish();
-                        }
-                    }).setNegativeButton("No", null).show();
-
-        }
-
-    }
+//    @Override
+//    public void onBackPressed() {
+//
+//        if(!Connection.conn.isConnected()){
+//            tm.cancel();
+//            readRegs.cancel();
+//            closeConnection();
+//            tm.cancel();
+//            readRegs.cancel();
+//            finish();
+//
+//        }else{
+//
+//
+//            new AlertDialog.Builder(this).setTitle("Exit Application")
+//                    .setMessage("Connection will be dropped if active, \nare you sure?")
+//                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                            tm.cancel();
+//                            readRegs.cancel();
+//                            closeConnection();
+//                            tm.cancel();
+//                            readRegs.cancel();
+//                            finish();
+//                        }
+//                    }).setNegativeButton("No", null).show();
+//
+//        }
+//
+//    }
 
     private void clearNotification()
     {
         mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.cancel(NOTIFICATION_ID);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+
+        if(Connection.conn.isConnected()){
+
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit and disconnect", Toast.LENGTH_SHORT).show();
+
+            handler.postDelayed(mRunnable, 2000);
+
+        }else{
+            super.onBackPressed();
+            return;
+        }
+
+
+
     }
 
 

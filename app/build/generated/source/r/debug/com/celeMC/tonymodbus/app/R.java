@@ -28,22 +28,26 @@ public final class R {
         public static final int button_green_press=0x7f020004;
         public static final int button_green_sel=0x7f020005;
         public static final int button_green_selected=0x7f020006;
-        public static final int button_selector=0x7f020007;
-        public static final int get_info=0x7f020008;
-        public static final int home_white=0x7f020009;
-        public static final int ic_launcher=0x7f02000a;
-        public static final int light_bulb=0x7f02000b;
-        public static final int light_bulb_error=0x7f02000c;
-        public static final int light_bulb_off=0x7f02000d;
-        public static final int list_background=0x7f02000e;
-        public static final int timer_icon=0x7f02000f;
-        public static final int timer_icon_error=0x7f020010;
-        public static final int timer_icon_off=0x7f020011;
-        public static final int timer_icon_touched=0x7f020012;
+        public static final int button_red_normal=0x7f020007;
+        public static final int button_red_press=0x7f020008;
+        public static final int button_red_sel=0x7f020009;
+        public static final int button_red_selected=0x7f02000a;
+        public static final int button_selector=0x7f02000b;
+        public static final int get_info=0x7f02000c;
+        public static final int home_white=0x7f02000d;
+        public static final int ic_launcher=0x7f02000e;
+        public static final int light_bulb=0x7f02000f;
+        public static final int light_bulb_error=0x7f020010;
+        public static final int light_bulb_off=0x7f020011;
+        public static final int list_background=0x7f020012;
+        public static final int timer_icon=0x7f020013;
+        public static final int timer_icon_error=0x7f020014;
+        public static final int timer_icon_off=0x7f020015;
+        public static final int timer_icon_touched=0x7f020016;
     }
     public static final class id {
         public static final int acs_880_txt=0x7f0a0010;
-        public static final int action_settings=0x7f0a0024;
+        public static final int action_settings=0x7f0a0025;
         public static final int btn_alarms=0x7f0a0009;
         public static final int btn_all_active=0x7f0a000a;
         public static final int btn_connect_command=0x7f0a000c;
@@ -63,45 +67,49 @@ public final class R {
         public static final int edt_internal_ip4=0x7f0a0014;
         public static final int edt_internal_port=0x7f0a0015;
         public static final int img_state=0x7f0a001b;
-        public static final int listView=0x7f0a0023;
+        public static final int listView=0x7f0a0024;
         public static final int listView_exterior=0x7f0a0001;
         public static final int listView_groups=0x7f0a0003;
         public static final int listView_interior=0x7f0a0005;
-        public static final int marker=0x7f0a0020;
-        public static final int marker2=0x7f0a0022;
+        public static final int marker=0x7f0a0021;
+        public static final int marker2=0x7f0a0023;
         public static final int sentron_txt=0x7f0a0016;
         public static final int txt_connstatus=0x7f0a000d;
         public static final int txt_ext_points_heading=0x7f0a0000;
         public static final int txt_fixed_timer=0x7f0a001e;
         public static final int txt_grp_points_heading=0x7f0a0002;
         public static final int txt_int_points_heading=0x7f0a0004;
-        public static final int txt_listname=0x7f0a0021;
+        public static final int txt_listname=0x7f0a0022;
         public static final int txt_phone_ip=0x7f0a000e;
         public static final int txt_pointname=0x7f0a001c;
+        public static final int txt_state=0x7f0a0020;
         public static final int txt_timervalue=0x7f0a001f;
     }
     public static final class layout {
         public static final int activity_alarms=0x7f030000;
         public static final int activity_all_lights_on=0x7f030001;
         public static final int activity_exterior_point=0x7f030002;
-        public static final int activity_group_point=0x7f030003;
-        public static final int activity_interior_point=0x7f030004;
-        public static final int activity_list_activity_test=0x7f030005;
-        public static final int activity_main=0x7f030006;
-        public static final int activity_settings=0x7f030007;
-        public static final int list_item=0x7f030008;
-        public static final int pointlist=0x7f030009;
+        public static final int activity_garden=0x7f030003;
+        public static final int activity_group_point=0x7f030004;
+        public static final int activity_interior_point=0x7f030005;
+        public static final int activity_list_activity_test=0x7f030006;
+        public static final int activity_main=0x7f030007;
+        public static final int activity_settings=0x7f030008;
+        public static final int list_item=0x7f030009;
+        public static final int point_list_on_off=0x7f03000a;
+        public static final int pointlist=0x7f03000b;
     }
     public static final class menu {
         public static final int alarms=0x7f090000;
         public static final int all_lights_on=0x7f090001;
         public static final int exterior_point=0x7f090002;
-        public static final int group_point=0x7f090003;
-        public static final int interior_point=0x7f090004;
-        public static final int list_activity_new=0x7f090005;
-        public static final int list_activity_test=0x7f090006;
-        public static final int main=0x7f090007;
-        public static final int settings=0x7f090008;
+        public static final int garden=0x7f090003;
+        public static final int group_point=0x7f090004;
+        public static final int interior_point=0x7f090005;
+        public static final int list_activity_new=0x7f090006;
+        public static final int list_activity_test=0x7f090007;
+        public static final int main=0x7f090008;
+        public static final int settings=0x7f090009;
     }
     public static final class string {
         public static final int action_connect=0x7f070000;
@@ -130,11 +138,12 @@ public final class R {
         public static final int title_activity_alarms=0x7f070017;
         public static final int title_activity_all_lights_on=0x7f070018;
         public static final int title_activity_exterior_point=0x7f070019;
-        public static final int title_activity_group_point=0x7f07001a;
-        public static final int title_activity_interior_point=0x7f07001b;
-        public static final int title_activity_list_activity_new=0x7f07001c;
-        public static final int title_activity_list_activity_test=0x7f07001d;
-        public static final int title_activity_settings=0x7f07001e;
+        public static final int title_activity_garden=0x7f07001a;
+        public static final int title_activity_group_point=0x7f07001b;
+        public static final int title_activity_interior_point=0x7f07001c;
+        public static final int title_activity_list_activity_new=0x7f07001d;
+        public static final int title_activity_list_activity_test=0x7f07001e;
+        public static final int title_activity_settings=0x7f07001f;
     }
     public static final class style {
         /**  Customize your theme here. 

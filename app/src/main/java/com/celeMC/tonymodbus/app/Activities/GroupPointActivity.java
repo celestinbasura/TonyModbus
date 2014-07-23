@@ -44,7 +44,7 @@ public class GroupPointActivity extends Activity {
     PointCustomAdapter userAdapter;
     ArrayList<ModBusPoint> pointListHelper = new ArrayList<ModBusPoint>();
     TextView headline;
-    int registerOffset = 152;
+    int registerOffset = 256;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -9,7 +9,7 @@ public class Constants {
     public static String DEFAULT_IP = "192.168.0.1";
     public static int DEFAULT_PORT = 5020;
 
-    public static String EXT_DEFAULT_IP = "192.168.0.1";
+    public static String EXT_DEFAULT_IP = "AFMaher.duckdns.org";
     public static int EXT_DEFAULT_PORT = 5020;
     public static String EXT_DEFAULT_SSID = "Home";
 

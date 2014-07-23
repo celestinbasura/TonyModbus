@@ -37,7 +37,7 @@
         android:id="@+id/listView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#ff4b8325"
+        android:background="#ff6cd34c"
         android:layout_below="@+id/marker"
 
         android:cacheColorHint="#00000000" />

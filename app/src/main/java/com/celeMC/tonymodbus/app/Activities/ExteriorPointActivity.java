@@ -30,7 +30,7 @@ import java.util.TimerTask;
 public class ExteriorPointActivity extends Activity {
 
 
-    final int registerOffset = 96;
+    final int registerOffset = 128;
     Timer tm;
     TimerTask readRegs;
     Handler handler = new Handler();

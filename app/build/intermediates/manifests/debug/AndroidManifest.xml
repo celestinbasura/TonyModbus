@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.celeMC.tonymodbus.app"
     android:versionCode="2"
-    android:versionName="1.2" >
+    android:versionName="1.2.1" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -51,6 +51,10 @@
         <activity
             android:name="com.celeMC.tonymodbus.app.Activities.AllLightsOnActivity"
             android:label="@string/title_activity_all_lights_on" >
+        </activity>
+        <activity
+            android:name="com.celeMC.tonymodbus.app.Activities.Garden"
+            android:label="@string/title_activity_garden" >
         </activity>
     </application>
 

@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.celeMC.tonymodbus.app.Adapters.PointAdapterAlarmGarden;
 import com.celeMC.tonymodbus.app.Adapters.PointCustomAdapter;
 import com.celeMC.tonymodbus.app.Models.ModBusPoint;
 import com.celeMC.tonymodbus.app.R;
@@ -33,7 +34,7 @@ import java.util.TimerTask;
 public class AlarmsActivity extends Activity {
 
 
-    final int registerOffset = 400;
+    final int registerOffset = 512;
     Timer tm;
     TimerTask readRegs;
     Handler handler = new Handler();
@@ -41,7 +42,7 @@ public class AlarmsActivity extends Activity {
     ReadMultipleRegistersRequest regRequest = null;
     volatile ReadMultipleRegistersResponse regResponse = null;
     ListView userList;
-    PointCustomAdapter userAdapter;
+    PointAdapterAlarmGarden userAdapter;
     ArrayList<ModBusPoint> pointListHelper = new ArrayList<ModBusPoint>();
     TextView headline;
     Boolean isConnectedToSlave = false;
@@ -61,12 +62,14 @@ public class AlarmsActivity extends Activity {
         headline.setText("Alarms");
 
 
-        pointListHelper.add(new ModBusPoint("Alarm System", 0, registerOffset)); //first int is the status reg value, second is the timer address
-        pointListHelper.add(new ModBusPoint("Alarm status", 4, registerOffset));
+        pointListHelper.add(new ModBusPoint("Garage Door", 0, registerOffset));
+        pointListHelper.add(new ModBusPoint("Alarm System", 4, registerOffset)); //first int is the status reg value, second is the timer address
+        pointListHelper.add(new ModBusPoint("Alarm status", 8, registerOffset));
 
 
 
-        userAdapter = new PointCustomAdapter(AlarmsActivity.this, R.layout.list_item, pointListHelper);
+
+        userAdapter = new PointAdapterAlarmGarden(AlarmsActivity.this, R.layout.point_list_on_off, pointListHelper);
         userList = (ListView) findViewById(R.id.listView);
         userList.setItemsCanFocus(false);
         userList.setAdapter(userAdapter);
@@ -194,7 +197,7 @@ public class AlarmsActivity extends Activity {
     void readSentronRegisters() {
 
 
-        regRequest = new ReadMultipleRegistersRequest(registerOffset, 10);
+        regRequest = new ReadMultipleRegistersRequest(registerOffset, 20);
 
         trans = new ModbusTCPTransaction(Connection.conn);
         trans.setRequest(regRequest);

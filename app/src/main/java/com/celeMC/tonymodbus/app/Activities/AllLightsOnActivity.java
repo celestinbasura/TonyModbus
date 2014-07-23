@@ -32,7 +32,7 @@ public class AllLightsOnActivity extends Activity {
 
 
     final int registerOffset = 0;
-    final int registerOffsetExt = 96;
+    final int registerOffsetExt = 128;
     Timer tm;
     TimerTask readRegs;
     Handler handler = new Handler();
@@ -193,6 +193,7 @@ public class AllLightsOnActivity extends Activity {
                 tm.scheduleAtFixedRate(readRegs, (long) 10, (long) 1000);
 
 
+
                 isConnectedToSlave = true;
             }
 
@@ -237,7 +238,7 @@ public class AllLightsOnActivity extends Activity {
 
 
         regRequest = new ReadMultipleRegistersRequest(registerOffset, 100);
-        regRequestExt = new ReadMultipleRegistersRequest(registerOffsetExt, 100);
+        regRequestExt = new ReadMultipleRegistersRequest(registerOffsetExt, 80);
 
         trans = new ModbusTCPTransaction(Connection.conn);
         trans.setRequest(regRequest);
@@ -326,8 +327,9 @@ public class AllLightsOnActivity extends Activity {
 
     private void refreshGUI() {
 
-        pointListHelperOn.clear();
+        //pointListHelperOn.clear();
 
+        userAdapter.clear();
         Log.d("cele", "refreshed");
 
         if (regResponse == null) {
@@ -363,7 +365,8 @@ public class AllLightsOnActivity extends Activity {
 
             if(pointListHelper.get(i).getStatusValue() > 0){
 
-                pointListHelperOn.add(pointListHelper.get(i));
+               // pointListHelperOn.add(pointListHelper.get(i));
+                userAdapter.add(pointListHelper.get(i));
             }
 
         }

@@ -19,6 +19,66 @@
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
+                name="button_bg_normal"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_bg_normal.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_bg_pressed"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_bg_pressed.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_bg_selected"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_bg_selected.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_green_normal"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_green_normal.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_green_press"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_green_press.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_green_sel"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_green_sel.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_green_selected"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_green_selected.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_red_normal"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_red_normal.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_red_press"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_red_press.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_red_sel"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_red_sel.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_red_selected"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_red_selected.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="button_selector"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_selector.xml"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
                 name="get_info"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/get_info.png"
                 qualifiers="xxhdpi-v4"
@@ -209,6 +269,8 @@
                 </string>
                 <string name="title_activity_all_lights_on" >AllLightsOnActivity
                 </string>
+                <string name="title_activity_garden" >Garden
+                </string>
                 <string name="exterior" >Exterior
                 </string>
             </file>
@@ -354,45 +416,20 @@ Never
                 qualifiers=""
                 type="xml" />
             <file
-                name="button_bg_normal"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_bg_normal.xml"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
+                name="activity_garden"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_garden.xml"
+                qualifiers=""
+                type="layout" />
             <file
-                name="button_selector"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_selector.xml"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
+                name="garden"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/garden.xml"
+                qualifiers=""
+                type="menu" />
             <file
-                name="button_bg_selected"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_bg_selected.xml"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
-            <file
-                name="button_bg_pressed"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_bg_pressed.xml"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
-            <file
-                name="button_green_press"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_green_press.xml"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
-            <file
-                name="button_green_normal"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_green_normal.xml"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
-            <file
-                name="button_green_selected"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_green_selected.xml"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
-            <file
-                name="button_green_sel"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/button_green_sel.xml"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
+                name="point_list_on_off"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/point_list_on_off.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/rs/debug" />
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/generated/debug" />
