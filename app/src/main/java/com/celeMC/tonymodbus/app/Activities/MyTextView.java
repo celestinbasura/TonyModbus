@@ -43,10 +43,12 @@ public class MyTextView extends TextView {
 
     public MyTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init();
     }
 
     public MyTextView (Context context){
         super(context);
+        init();
 
 
     }
@@ -54,6 +56,7 @@ public class MyTextView extends TextView {
     public MyTextView (Context context, AttributeSet attrs){
 
         super(context, attrs);
+        init();
     }
 
 
