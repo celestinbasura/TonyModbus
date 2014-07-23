@@ -30,11 +30,19 @@
         <item>360</item>
         <item>-1</item>
     </string-array>
+    <!-- From: file:/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
+    <color name="notepad_lines">#FF0000FF</color>
+    <color name="notepad_margin">#90FF0000</color>
+    <color name="notepad_paper">#EEF8E0A0</color>
+    <color name="notepad_text">#AA0000FF</color>
     <!-- From: file:/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="notepad_margin">30dp</dimen>
     <!-- From: file:/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/strings.xml -->
     <eat-comment />
 

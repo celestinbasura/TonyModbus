@@ -233,6 +233,8 @@
                 qualifiers="" >
                 <dimen name="activity_vertical_margin" >16dp
                 </dimen>
+                <dimen name="notepad_margin" >30dp
+                </dimen>
                 <dimen name="activity_horizontal_margin" >16dp
                 </dimen>
             </file>
@@ -430,6 +432,18 @@ Never
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/point_list_on_off.xml"
                 qualifiers=""
                 type="layout" />
+            <file
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/colors.xml"
+                qualifiers="" >
+                <color name="notepad_margin" >#90FF0000
+                </color>
+                <color name="notepad_text" >#AA0000FF
+                </color>
+                <color name="notepad_paper" >#EEF8E0A0
+                </color>
+                <color name="notepad_lines" >#FF0000FF
+                </color>
+            </file>
         </source>
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/rs/debug" />
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/generated/debug" />
