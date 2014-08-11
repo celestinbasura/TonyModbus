@@ -444,6 +444,16 @@ Never
                 <color name="notepad_lines" >#FF0000FF
                 </color>
             </file>
+            <file
+                name="status_webview"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/status_webview.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="cloud_status"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/cloud_status.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
         </source>
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/rs/debug" />
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/generated/debug" />

@@ -63,30 +63,30 @@ public class InteriorPointActivity extends Activity {
         headline.setText("Interior");
         sharedPreferences = getApplicationContext().getSharedPreferences(Constants.PREF, 0); // 0 - for private mode
 
-        pointListHelper.add(new ModBusPoint("Top Landing", 0, registerOffset)); //first int is the status reg value, second is the timer address
-        pointListHelper.add(new ModBusPoint("Foyer", 4, registerOffset));
-        pointListHelper.add(new ModBusPoint("Top Landing2", 8, registerOffset));
-        pointListHelper.add(new ModBusPoint("Bed", 12, registerOffset));
-        pointListHelper.add(new ModBusPoint("WIR", 16, registerOffset));
-        pointListHelper.add(new ModBusPoint("Ensuite", 20, registerOffset));
-        pointListHelper.add(new ModBusPoint("Kitchen1", 24, registerOffset));
-        pointListHelper.add(new ModBusPoint("Kitchen2", 28, registerOffset));
-        pointListHelper.add(new ModBusPoint("Dining1", 32, registerOffset));
-        pointListHelper.add(new ModBusPoint("Dining2", 36, registerOffset));//
-        pointListHelper.add(new ModBusPoint("Family1", 40, registerOffset));
-        pointListHelper.add(new ModBusPoint("Family2", 44, registerOffset));
-        pointListHelper.add(new ModBusPoint("Balcony1", 48, registerOffset));
-        pointListHelper.add(new ModBusPoint("Balcony2", 52, registerOffset));
-        pointListHelper.add(new ModBusPoint("Alfresco1", 56, registerOffset));
-        pointListHelper.add(new ModBusPoint("Alfresco2", 60, registerOffset));
-        pointListHelper.add(new ModBusPoint("Study1", 64, registerOffset));//
-        pointListHelper.add(new ModBusPoint("Study2", 68, registerOffset));
-        pointListHelper.add(new ModBusPoint("Bed1", 72, registerOffset));
-        pointListHelper.add(new ModBusPoint("Bed2", 76, registerOffset));
-        pointListHelper.add(new ModBusPoint("Rear Passage", 80, registerOffset));
-        pointListHelper.add(new ModBusPoint("WC2", 84, registerOffset));//
-        pointListHelper.add(new ModBusPoint("Bath2", 88, registerOffset));
-        pointListHelper.add(new ModBusPoint("Laundry", 92, registerOffset));
+        pointListHelper.add(new ModBusPoint("Study", 0, registerOffset)); //first int is the status reg value, second is the timer address
+        pointListHelper.add(new ModBusPoint("Kitchen 1", 4, registerOffset));
+        pointListHelper.add(new ModBusPoint("Kitchen 2", 8, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bed 1", 12, registerOffset));
+        pointListHelper.add(new ModBusPoint("Ensuite", 16, registerOffset));
+        pointListHelper.add(new ModBusPoint("WIR", 20, registerOffset));
+        pointListHelper.add(new ModBusPoint("Dinning", 24, registerOffset));
+        pointListHelper.add(new ModBusPoint("Family 1", 28, registerOffset));
+        pointListHelper.add(new ModBusPoint("Family 2", 32, registerOffset));
+        pointListHelper.add(new ModBusPoint("Laundry", 36, registerOffset));//
+        pointListHelper.add(new ModBusPoint("Passage Rear", 40, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bath 2", 44, registerOffset));
+        pointListHelper.add(new ModBusPoint("WC 2", 48, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bed 2", 52, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bed 3", 56, registerOffset));
+        pointListHelper.add(new ModBusPoint("Entrance Foyer", 60, registerOffset));
+        pointListHelper.add(new ModBusPoint("Landing Top", 64, registerOffset));//
+        pointListHelper.add(new ModBusPoint("Landing Stairs", 68, registerOffset));
+ //       pointListHelper.add(new ModBusPoint("Bed1", 72, registerOffset));
+   //     pointListHelper.add(new ModBusPoint("Bed2", 76, registerOffset));
+   //     pointListHelper.add(new ModBusPoint("Rear Passage", 80, registerOffset));
+   //     pointListHelper.add(new ModBusPoint("WC2", 84, registerOffset));//
+   //     pointListHelper.add(new ModBusPoint("Bath2", 88, registerOffset));
+   //     pointListHelper.add(new ModBusPoint("Laundry", 92, registerOffset));
 
 
         userAdapter = new PointCustomAdapter(InteriorPointActivity.this, R.layout.list_item, pointListHelper);

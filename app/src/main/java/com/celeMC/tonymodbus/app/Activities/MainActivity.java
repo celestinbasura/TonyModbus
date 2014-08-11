@@ -23,6 +23,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -58,6 +60,8 @@ public class MainActivity extends Activity {
     Button btnAlarms;
     Button btnActivated;
     Button btnReserved;
+
+    ImageButton btnCloudStatus;
     ImageButton btnInfo;
     boolean isConnecting = false;
     boolean isConnected;
@@ -128,6 +132,7 @@ public class MainActivity extends Activity {
         txtStatus = (TextView) findViewById(R.id.txt_connstatus);
         txtPhoneIP = (TextView) findViewById(R.id.txt_phone_ip);
         btnInfo = (ImageButton) findViewById(R.id.btn_info);
+        btnCloudStatus = (ImageButton) findViewById(R.id.btn_status);
         btnAlarms = (Button) findViewById(R.id.btn_alarms);
         btnActivated = (Button) findViewById(R.id.btn_all_active);
         btnReserved = (Button) findViewById(R.id.btn_reserved);
@@ -334,6 +339,37 @@ public class MainActivity extends Activity {
             connect();
             Toast.makeText(getApplicationContext(), "Connecting automatically to Home network", Toast.LENGTH_SHORT).show();
         }
+
+
+        btnCloudStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle("Server status");
+
+                WebView wv = new WebView(MainActivity.this);
+                wv.loadUrl("http://afmaher.duckdns.org:8081");
+                wv.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+
+                        return true;
+                    }
+                });
+
+                alert.setView(wv);
+                alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
+
+
+            }
+        });
 
 
     }
@@ -779,7 +815,7 @@ public class MainActivity extends Activity {
 
                   if(!isExceptionActive){
 
-                      txtStatus.setText(" Connected to Server\n Response time: " + (System.currentTimeMillis() - time) + "ms");
+                      txtStatus.setText(" Connected to Server\n Response time: " + (System.currentTimeMillis() - time) + "ms" + " Tr ID: " + trans.getTransactionID() );
                   }
 
 

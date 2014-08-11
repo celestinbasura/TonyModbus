@@ -58,11 +58,12 @@ public class GroupPointActivity extends Activity {
         headline.setText("Group");
 
 
-        pointListHelper.add(new ModBusPoint("All OFF", 0, registerOffset)); //first int is the status reg value, second is the timer address
-        pointListHelper.add(new ModBusPoint("All ON", 4, registerOffset));
+        pointListHelper.add(new ModBusPoint("All Off", 0, registerOffset)); //first int is the status reg value, second is the timer address
+        pointListHelper.add(new ModBusPoint("All On", 4, registerOffset));
         pointListHelper.add(new ModBusPoint("Inside Living", 8, registerOffset));
         pointListHelper.add(new ModBusPoint("Front Outside Living", 12, registerOffset));
         pointListHelper.add(new ModBusPoint("Rear Outside Living", 16, registerOffset));
+        pointListHelper.add(new ModBusPoint("Fhantom Home", 18, registerOffset));
 
 
         userAdapter = new PointCustomAdapter(GroupPointActivity.this, R.layout.list_item, pointListHelper);

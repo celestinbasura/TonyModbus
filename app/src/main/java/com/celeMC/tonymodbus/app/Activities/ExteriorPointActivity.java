@@ -55,20 +55,29 @@ public class ExteriorPointActivity extends Activity {
         headline.setText("Exterior");
 
 
-        pointListHelper.add(new ModBusPoint("Garage1", 0, registerOffset)); //first int is the status reg value, second is the timer address
-        pointListHelper.add(new ModBusPoint("Garage2", 4, registerOffset));
-        pointListHelper.add(new ModBusPoint("Portfico Sofit1", 8, registerOffset));
-        pointListHelper.add(new ModBusPoint("Portfico Sofit2", 12, registerOffset));
-        pointListHelper.add(new ModBusPoint("Portfico Sofit3", 16, registerOffset));
-        pointListHelper.add(new ModBusPoint("Front Feature Wall Left", 20, registerOffset));
-        pointListHelper.add(new ModBusPoint("Front Feature Wall Right", 24, registerOffset));
-        pointListHelper.add(new ModBusPoint("Front Garden Left", 28, registerOffset));
-        pointListHelper.add(new ModBusPoint("Front Garden Right", 32, registerOffset));
-        pointListHelper.add(new ModBusPoint("Rear Garden 1", 36, registerOffset));//
-        pointListHelper.add(new ModBusPoint("Rear Garden 2", 40, registerOffset));
-        pointListHelper.add(new ModBusPoint("Rear Outside Left", 44, registerOffset));
-        pointListHelper.add(new ModBusPoint("Rear Outside Back", 48, registerOffset));
-        pointListHelper.add(new ModBusPoint("Rear Outside Right", 52, registerOffset));
+        pointListHelper.add(new ModBusPoint("Alfresco 1", 0, registerOffset)); //first int is the status reg value, second is the timer address
+        pointListHelper.add(new ModBusPoint("Alfresco 2", 4, registerOffset));
+        pointListHelper.add(new ModBusPoint("Alfresco Gdn 1", 8, registerOffset));
+        pointListHelper.add(new ModBusPoint("Alfresco Garden 2", 12, registerOffset));
+        pointListHelper.add(new ModBusPoint("Balcony 1", 16, registerOffset));
+        pointListHelper.add(new ModBusPoint("Balcony 2", 20, registerOffset));
+        pointListHelper.add(new ModBusPoint("Garage 1", 24, registerOffset));
+        pointListHelper.add(new ModBusPoint("Garage 2", 28, registerOffset));
+        pointListHelper.add(new ModBusPoint("Front Feature Wall Left", 32, registerOffset));
+        pointListHelper.add(new ModBusPoint("Front Feature Wall Right", 36, registerOffset));//
+        pointListHelper.add(new ModBusPoint("Portfico Sofit 1", 40, registerOffset));
+        pointListHelper.add(new ModBusPoint("Portfico Sofit 2", 44, registerOffset));
+        pointListHelper.add(new ModBusPoint("Portfico Sofit 3", 48, registerOffset));
+        pointListHelper.add(new ModBusPoint("Front Garden Left", 52, registerOffset));
+
+        pointListHelper.add(new ModBusPoint("Front Garden Right", 56, registerOffset));
+        pointListHelper.add(new ModBusPoint("Rear Outside Left", 60, registerOffset));
+        pointListHelper.add(new ModBusPoint("Rear Outside Back", 64, registerOffset));
+
+
+        pointListHelper.add(new ModBusPoint("Rear Outside Right", 68, registerOffset));
+    //    pointListHelper.add(new ModBusPoint("Rear Outside Left", 72, registerOffset));
+     //   pointListHelper.add(new ModBusPoint("Rear Outside Back", 76, registerOffset));
 
 
         userAdapter = new PointCustomAdapter(ExteriorPointActivity.this, R.layout.list_item, pointListHelper);

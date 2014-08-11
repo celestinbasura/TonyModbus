@@ -63,8 +63,8 @@ public class AlarmsActivity extends Activity {
 
 
         pointListHelper.add(new ModBusPoint("Garage Door", 0, registerOffset));
-        pointListHelper.add(new ModBusPoint("Alarm System", 4, registerOffset)); //first int is the status reg value, second is the timer address
-        pointListHelper.add(new ModBusPoint("Alarm status", 8, registerOffset));
+        pointListHelper.add(new ModBusPoint("Alarm System Control", 4, registerOffset)); //first int is the status reg value, second is the timer address
+        pointListHelper.add(new ModBusPoint("Alarm Status", 8, registerOffset));
 
 
 
