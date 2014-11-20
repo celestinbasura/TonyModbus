@@ -62,7 +62,29 @@ public class AllLightsOnActivity extends Activity {
         headline = (TextView) findViewById(R.id.txt_listname);
         headline.setText("Lights On");
 
-        pointListHelper.add(new ModBusPoint("Top Landing", 0, registerOffset)); //first int is the status reg value, second is the timer address
+
+
+        pointListHelper.add(new ModBusPoint("Study", 0, registerOffset)); //first int is the status reg value, second is the timer address
+        pointListHelper.add(new ModBusPoint("Kitchen 1", 4, registerOffset));
+        pointListHelper.add(new ModBusPoint("Kitchen 2", 8, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bed 1", 12, registerOffset));
+        pointListHelper.add(new ModBusPoint("Ensuite", 16, registerOffset));
+        pointListHelper.add(new ModBusPoint("WC1", 20, registerOffset));
+        pointListHelper.add(new ModBusPoint("WIR", 24, registerOffset));
+        pointListHelper.add(new ModBusPoint("Dinning", 28, registerOffset));
+        pointListHelper.add(new ModBusPoint("Family 1", 32, registerOffset));
+        pointListHelper.add(new ModBusPoint("Family 2", 36, registerOffset));
+        pointListHelper.add(new ModBusPoint("Laundry", 40, registerOffset));//
+        pointListHelper.add(new ModBusPoint("Passage Rear", 44, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bath 2", 48, registerOffset));
+        pointListHelper.add(new ModBusPoint("WC 2", 52, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bed 2", 56, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bed 3", 60, registerOffset));
+        pointListHelper.add(new ModBusPoint("Entrance Foyer", 64, registerOffset));
+        pointListHelper.add(new ModBusPoint("Landing Top", 68, registerOffset));//
+        pointListHelper.add(new ModBusPoint("Landing Stairs", 72, registerOffset));
+
+      /*  pointListHelper.add(new ModBusPoint("Top Landing", 0, registerOffset)); //first int is the status reg value, second is the timer address
         pointListHelper.add(new ModBusPoint("Foyer", 4, registerOffset));
         pointListHelper.add(new ModBusPoint("Top Landing2", 8, registerOffset));
         pointListHelper.add(new ModBusPoint("Bed", 12, registerOffset));
@@ -87,26 +109,28 @@ public class AllLightsOnActivity extends Activity {
         pointListHelper.add(new ModBusPoint("Bath2", 88, registerOffset));
         pointListHelper.add(new ModBusPoint("Laundry", 92, registerOffset));
 
+*/
 
-
-        pointListHelperExt.add(new ModBusPoint("Garage1", 0, registerOffsetExt)); //first int is the status reg value, second is the timer address
-        pointListHelperExt.add(new ModBusPoint("Garage2", 4, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Portfico Sofit1", 8, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Portfico Sofit2", 12, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Alfresco 1", 0, registerOffsetExt)); //first int is the status reg value, second is the timer address
+        pointListHelperExt.add(new ModBusPoint("Alfresco 2", 4, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Alfresco Garden 1", 8, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Alfresco Garden 2", 12, registerOffsetExt));
         pointListHelperExt.add(new ModBusPoint("Portfico Sofit3", 16, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Front Feature Wall Left", 20, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Front Feature Wall Right", 24, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Front Garden Left", 28, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Front Garden Right", 32, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Rear Garden 1", 36, registerOffsetExt));//
-        pointListHelperExt.add(new ModBusPoint("Rear Garden 2", 40, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Rear Outside Left", 44, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Rear Outside Back", 48, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Rear Outside Right", 52, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Balcony 1", 20, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Balcony 2", 24, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Garage 1", 28, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Garage 2", 32, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Front Feature Wall Left", 36, registerOffsetExt));//
+        pointListHelperExt.add(new ModBusPoint("Front Feature Wall Right", 40, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 1", 44, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 2", 48, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 3", 52, registerOffsetExt));
 
-
-
-
+        pointListHelperExt.add(new ModBusPoint("Front Garden Left", 58, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Front Garden Right", 62, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Rear Outside Left", 66, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Rear Outside Back", 70, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Rear Outside Right", 74, registerOffsetExt));
 
         userAdapter = new PointCustomAdapter(AllLightsOnActivity.this, R.layout.list_item, pointListHelperOn);
         userList = (ListView) findViewById(R.id.listView);
@@ -238,7 +262,7 @@ public class AllLightsOnActivity extends Activity {
 
 
         regRequest = new ReadMultipleRegistersRequest(registerOffset, 100);
-        regRequestExt = new ReadMultipleRegistersRequest(registerOffsetExt, 80);
+        regRequestExt = new ReadMultipleRegistersRequest(registerOffsetExt, 100);
 
         trans = new ModbusTCPTransaction(Connection.conn);
         trans.setRequest(regRequest);

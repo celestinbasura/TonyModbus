@@ -83,7 +83,8 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
 
         final ModBusPoint point = data.get(position);
         holder.textName.setText(point.getName());
-        holder.textTimer.setText(point.getTimerValue() + "");
+
+        holder.textTimer.setText(String.format("%02d:%02d", point.getTimerValue()/60,  point.getTimerValue()%60 ));
 
 
 
@@ -144,7 +145,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
                 AlertDialog.Builder alert = new AlertDialog.Builder(context);
 
                 alert.setTitle("Set Timer Value");
-                alert.setMessage("Enter the timer value in seconds");
+                alert.setMessage("Enter the timer value in minutes");
 
                 final EditText input = new EditText(context);
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);

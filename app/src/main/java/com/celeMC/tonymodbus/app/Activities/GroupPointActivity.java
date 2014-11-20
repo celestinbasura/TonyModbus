@@ -64,6 +64,7 @@ public class GroupPointActivity extends Activity {
         pointListHelper.add(new ModBusPoint("Front Outside Living", 12, registerOffset));
         pointListHelper.add(new ModBusPoint("Rear Outside Living", 16, registerOffset));
         pointListHelper.add(new ModBusPoint("Fhantom Home", 18, registerOffset));
+        pointListHelper.add(new ModBusPoint("Morning Wakeup", 22, registerOffset));
 
 
         userAdapter = new PointCustomAdapter(GroupPointActivity.this, R.layout.list_item, pointListHelper);

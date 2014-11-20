@@ -57,7 +57,7 @@ public class ExteriorPointActivity extends Activity {
 
         pointListHelper.add(new ModBusPoint("Alfresco 1", 0, registerOffset)); //first int is the status reg value, second is the timer address
         pointListHelper.add(new ModBusPoint("Alfresco 2", 4, registerOffset));
-        pointListHelper.add(new ModBusPoint("Alfresco Gdn 1", 8, registerOffset));
+        pointListHelper.add(new ModBusPoint("Alfresco Garden 1", 8, registerOffset));
         pointListHelper.add(new ModBusPoint("Alfresco Garden 2", 12, registerOffset));
         pointListHelper.add(new ModBusPoint("Balcony 1", 16, registerOffset));
         pointListHelper.add(new ModBusPoint("Balcony 2", 20, registerOffset));
@@ -69,12 +69,9 @@ public class ExteriorPointActivity extends Activity {
         pointListHelper.add(new ModBusPoint("Portfico Sofit 2", 44, registerOffset));
         pointListHelper.add(new ModBusPoint("Portfico Sofit 3", 48, registerOffset));
         pointListHelper.add(new ModBusPoint("Front Garden Left", 52, registerOffset));
-
         pointListHelper.add(new ModBusPoint("Front Garden Right", 56, registerOffset));
         pointListHelper.add(new ModBusPoint("Rear Outside Left", 60, registerOffset));
         pointListHelper.add(new ModBusPoint("Rear Outside Back", 64, registerOffset));
-
-
         pointListHelper.add(new ModBusPoint("Rear Outside Right", 68, registerOffset));
     //    pointListHelper.add(new ModBusPoint("Rear Outside Left", 72, registerOffset));
      //   pointListHelper.add(new ModBusPoint("Rear Outside Back", 76, registerOffset));

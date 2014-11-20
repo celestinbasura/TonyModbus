@@ -63,6 +63,7 @@ public class MainActivity extends Activity {
 
     ImageButton btnCloudStatus;
     ImageButton btnInfo;
+    ImageButton btnCamera;
     boolean isConnecting = false;
     boolean isConnected;
     boolean isHome = true;
@@ -133,6 +134,7 @@ public class MainActivity extends Activity {
         txtPhoneIP = (TextView) findViewById(R.id.txt_phone_ip);
         btnInfo = (ImageButton) findViewById(R.id.btn_info);
         btnCloudStatus = (ImageButton) findViewById(R.id.btn_status);
+        btnCamera = (ImageButton) findViewById(R.id.btn_camera);
         btnAlarms = (Button) findViewById(R.id.btn_alarms);
         btnActivated = (Button) findViewById(R.id.btn_all_active);
         btnReserved = (Button) findViewById(R.id.btn_reserved);
@@ -348,7 +350,23 @@ public class MainActivity extends Activity {
                 alert.setTitle("Server status");
 
                 WebView wv = new WebView(MainActivity.this);
-                wv.loadUrl("http://afmaher.duckdns.org:8081");
+
+                String currentIP;
+
+
+                if (isHome()) {
+
+                    currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
+
+
+                } else {
+                    currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
+
+
+                }
+
+
+                wv.loadUrl( "http://www." + currentIP + ":8081");
                 wv.setWebViewClient(new WebViewClient() {
                     @Override
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -370,6 +388,59 @@ public class MainActivity extends Activity {
 
             }
         });
+
+
+
+
+
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle("Camera View");
+
+                WebView wv = new WebView(MainActivity.this);
+
+                String currentIP;
+
+
+                if (isHome()) {
+
+                    currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
+
+
+                } else {
+                    currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
+
+
+                }
+
+
+                wv.loadUrl( "http://www." + currentIP + ":8082");
+                wv.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+
+                        return true;
+                    }
+                });
+
+                alert.setView(wv);
+                alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
+
+
+            }
+        });
+
+
+
 
 
     }

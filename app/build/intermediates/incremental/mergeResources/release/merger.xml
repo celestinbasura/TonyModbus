@@ -79,6 +79,16 @@
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
+                name="camera"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/camera.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="cloud_status"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/cloud_status.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
                 name="get_info"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/get_info.png"
                 qualifiers="xxhdpi-v4"
@@ -191,6 +201,11 @@
             <file
                 name="pointlist"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/pointlist.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="status_webview"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/status_webview.xml"
                 qualifiers=""
                 type="layout" />
             <file

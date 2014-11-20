@@ -79,6 +79,11 @@
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
+                name="cloud_status"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/cloud_status.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
                 name="get_info"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/get_info.png"
                 qualifiers="xxhdpi-v4"
@@ -149,6 +154,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="activity_garden"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_garden.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="activity_group_point"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_group_point.xml"
                 qualifiers=""
@@ -179,8 +189,18 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="point_list_on_off"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/point_list_on_off.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="pointlist"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/pointlist.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="status_webview"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/status_webview.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -196,6 +216,11 @@
             <file
                 name="exterior_point"
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/exterior_point.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="garden"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/garden.xml"
                 qualifiers=""
                 type="menu" />
             <file
@@ -228,6 +253,18 @@
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/settings.xml"
                 qualifiers=""
                 type="menu" />
+            <file
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/colors.xml"
+                qualifiers="" >
+                <color name="notepad_margin" >#90FF0000
+                </color>
+                <color name="notepad_text" >#AA0000FF
+                </color>
+                <color name="notepad_paper" >#EEF8E0A0
+                </color>
+                <color name="notepad_lines" >#FF0000FF
+                </color>
+            </file>
             <file
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/dimens.xml"
                 qualifiers="" >
@@ -418,40 +455,8 @@ Never
                 qualifiers=""
                 type="xml" />
             <file
-                name="activity_garden"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_garden.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="garden"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/garden.xml"
-                qualifiers=""
-                type="menu" />
-            <file
-                name="point_list_on_off"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/point_list_on_off.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/values/colors.xml"
-                qualifiers="" >
-                <color name="notepad_margin" >#90FF0000
-                </color>
-                <color name="notepad_text" >#AA0000FF
-                </color>
-                <color name="notepad_paper" >#EEF8E0A0
-                </color>
-                <color name="notepad_lines" >#FF0000FF
-                </color>
-            </file>
-            <file
-                name="status_webview"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/status_webview.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="cloud_status"
-                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/cloud_status.png"
+                name="camera"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/drawable-xxhdpi/camera.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
         </source>

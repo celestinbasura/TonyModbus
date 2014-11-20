@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.celeMC.tonymodbus.app.Adapters.PointCustomAdapter;
 import com.celeMC.tonymodbus.app.Constants;
 import com.celeMC.tonymodbus.app.Models.ModBusPoint;
@@ -68,19 +69,20 @@ public class InteriorPointActivity extends Activity {
         pointListHelper.add(new ModBusPoint("Kitchen 2", 8, registerOffset));
         pointListHelper.add(new ModBusPoint("Bed 1", 12, registerOffset));
         pointListHelper.add(new ModBusPoint("Ensuite", 16, registerOffset));
-        pointListHelper.add(new ModBusPoint("WIR", 20, registerOffset));
-        pointListHelper.add(new ModBusPoint("Dinning", 24, registerOffset));
-        pointListHelper.add(new ModBusPoint("Family 1", 28, registerOffset));
-        pointListHelper.add(new ModBusPoint("Family 2", 32, registerOffset));
-        pointListHelper.add(new ModBusPoint("Laundry", 36, registerOffset));//
-        pointListHelper.add(new ModBusPoint("Passage Rear", 40, registerOffset));
-        pointListHelper.add(new ModBusPoint("Bath 2", 44, registerOffset));
-        pointListHelper.add(new ModBusPoint("WC 2", 48, registerOffset));
-        pointListHelper.add(new ModBusPoint("Bed 2", 52, registerOffset));
-        pointListHelper.add(new ModBusPoint("Bed 3", 56, registerOffset));
-        pointListHelper.add(new ModBusPoint("Entrance Foyer", 60, registerOffset));
-        pointListHelper.add(new ModBusPoint("Landing Top", 64, registerOffset));//
-        pointListHelper.add(new ModBusPoint("Landing Stairs", 68, registerOffset));
+        pointListHelper.add(new ModBusPoint("WC1", 20, registerOffset));
+        pointListHelper.add(new ModBusPoint("WIR", 24, registerOffset));
+        pointListHelper.add(new ModBusPoint("Dinning", 28, registerOffset));
+        pointListHelper.add(new ModBusPoint("Family 1", 32, registerOffset));
+        pointListHelper.add(new ModBusPoint("Family 2", 36, registerOffset));
+        pointListHelper.add(new ModBusPoint("Laundry", 40, registerOffset));//
+        pointListHelper.add(new ModBusPoint("Passage Rear", 44, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bath 2", 48, registerOffset));
+        pointListHelper.add(new ModBusPoint("WC 2", 52, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bed 2", 56, registerOffset));
+        pointListHelper.add(new ModBusPoint("Bed 3", 60, registerOffset));
+        pointListHelper.add(new ModBusPoint("Entrance Foyer", 64, registerOffset));
+        pointListHelper.add(new ModBusPoint("Landing Top", 68, registerOffset));//
+        pointListHelper.add(new ModBusPoint("Landing Stairs", 72, registerOffset));
  //       pointListHelper.add(new ModBusPoint("Bed1", 72, registerOffset));
    //     pointListHelper.add(new ModBusPoint("Bed2", 76, registerOffset));
    //     pointListHelper.add(new ModBusPoint("Rear Passage", 80, registerOffset));
