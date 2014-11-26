@@ -115,22 +115,20 @@ public class AllLightsOnActivity extends Activity {
         pointListHelperExt.add(new ModBusPoint("Alfresco 2", 4, registerOffsetExt));
         pointListHelperExt.add(new ModBusPoint("Alfresco Garden 1", 8, registerOffsetExt));
         pointListHelperExt.add(new ModBusPoint("Alfresco Garden 2", 12, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Portfico Sofit3", 16, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Balcony 1", 20, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Balcony 2", 24, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Garage 1", 28, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Garage 2", 32, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Front Feature Wall Left", 36, registerOffsetExt));//
-        pointListHelperExt.add(new ModBusPoint("Front Feature Wall Right", 40, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 1", 44, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 2", 48, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 3", 52, registerOffsetExt));
-
-        pointListHelperExt.add(new ModBusPoint("Front Garden Left", 58, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Front Garden Right", 62, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Rear Outside Left", 66, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Rear Outside Back", 70, registerOffsetExt));
-        pointListHelperExt.add(new ModBusPoint("Rear Outside Right", 74, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Balcony 1", 16, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Balcony 2", 20, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Garage 1", 24, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Garage 2", 28, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Front Feature Wall Left", 32, registerOffsetExt));//
+        pointListHelperExt.add(new ModBusPoint("Front Feature Wall Right", 36, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 1", 40, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 2", 44, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Portfico Sofit 3", 48, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Front Garden Left", 52, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Front Garden Right", 56, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Rear Outside Left", 60, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Rear Outside Back", 64, registerOffsetExt));
+        pointListHelperExt.add(new ModBusPoint("Rear Outside Right", 68, registerOffsetExt));
 
         userAdapter = new PointCustomAdapter(AllLightsOnActivity.this, R.layout.list_item, pointListHelperOn);
         userList = (ListView) findViewById(R.id.listView);

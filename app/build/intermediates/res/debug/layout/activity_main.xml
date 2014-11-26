@@ -144,11 +144,12 @@
 
     <Button
         android:id="@+id/btn_connect_command"
-        android:text="Connect"
+        android:text="Waiting..."
         android:textSize="25sp"
         android:layout_width="fill_parent"
         android:textColor="#fff7fff6"
         android:layout_margin="10dp"
+        android:clickable="false"
         android:background="@drawable/button_green_sel"
         android:layout_height="0dp"
         android:layout_weight="0.15"

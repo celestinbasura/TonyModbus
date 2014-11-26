@@ -2,6 +2,7 @@ package com.celeMC.tonymodbus.app.Activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,6 +14,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -20,9 +22,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.webkit.HttpAuthHandler;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -338,6 +346,10 @@ public class MainActivity extends Activity {
 
         if(isHome() && checkAvailableConnection() == 1){
 
+            while(!btnConnect.isClickable()){
+
+               txtStatus.setText("Waiting to Auto Connect");
+            }
             connect();
             Toast.makeText(getApplicationContext(), "Connecting automatically to Home network", Toast.LENGTH_SHORT).show();
         }
@@ -347,6 +359,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                requestWindowFeature(Window.FEATURE_NO_TITLE);
                 alert.setTitle("Server status");
 
                 WebView wv = new WebView(MainActivity.this);
@@ -396,10 +409,36 @@ public class MainActivity extends Activity {
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-                alert.setTitle("Camera View");
+
+               Dialog dialog = new Dialog(MainActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+                Display display = getWindowManager().getDefaultDisplay();
+                Point size = new Point();
+                display.getSize(size);
+                int width = size.x;
+                int height = size.y;
+
+
+
+                WindowManager.LayoutParams a = dialog.getWindow().getAttributes();
+
+//      dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+                a.dimAmount = 0;
+                dialog.getWindow().setAttributes(a);
+
+                dialog.setCancelable(true);
+                dialog.getWindow().setLayout(3000, 10000);
+
 
                 WebView wv = new WebView(MainActivity.this);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = (height / 2 + 10);
+
 
                 String currentIP;
 
@@ -415,28 +454,35 @@ public class MainActivity extends Activity {
 
                 }
 
-
-                wv.loadUrl( "http://www." + currentIP + ":8082");
-                wv.setWebViewClient(new WebViewClient() {
-                    @Override
-                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                        view.loadUrl(url);
-
-                        return true;
-                    }
-                });
-
-                alert.setView(wv);
-                alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
-                alert.show();
+              //  http://afmaher.duckdns.org:8082/mobile.htm
 
 
-            }
+                dialog.setContentView(wv);
+                dialog.show();
+                dialog.getWindow().setAttributes(lp);
+
+                wv.getSettings().setJavaScriptEnabled(true);
+                //camOneView.setHttpAuthUsernamePassword("http://192.168.1.2/", null, "admin", null);
+                wv.getSettings().setJavaScriptEnabled(true);
+
+
+
+
+                    wv.setInitialScale( (int)(width / 6.85));
+
+               //
+                wv.getSettings().setLoadWithOverviewMode(true);
+                wv.getSettings().setBuiltInZoomControls(true);
+                wv.getSettings().setUseWideViewPort(true);
+
+                wv.setWebViewClient(new MyWebViewClient());
+
+
+                wv.getSettings().setPluginState(WebSettings.PluginState.ON);
+                wv.loadUrl( "http://www." + currentIP + ":8082/mobile.htm");
+
+
+           }
         });
 
 
@@ -920,6 +966,7 @@ public class MainActivity extends Activity {
 
 
                     btnConnect.setText("Connect");
+                    btnConnect.setClickable(true);
                     btnConnect.setBackgroundResource(R.drawable.button_green_sel);
                     txtStatus.setText(" Not Connected to Server");
 
@@ -996,6 +1043,19 @@ public class MainActivity extends Activity {
 
 
 
+
+
+    }
+
+
+    class MyWebViewClient extends WebViewClient {
+        @Override
+        public void onReceivedHttpAuthRequest(WebView view,
+                                              HttpAuthHandler handler, String host, String realm) {
+
+            handler.proceed("admin", "");
+
+        }
     }
 
 

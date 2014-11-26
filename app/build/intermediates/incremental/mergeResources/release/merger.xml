@@ -305,6 +305,8 @@
                 </string>
                 <string name="selection" >Point Groups
                 </string>
+                <string name="title_activity_camera1" >Camera1
+                </string>
                 <string name="title_activity_exterior_point" >ExteriorPointActivity
                 </string>
                 <string name="title_activity_group_point" >GroupPointActivity
@@ -459,6 +461,16 @@ Never
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/xml/pref_notification.xml"
                 qualifiers=""
                 type="xml" />
+            <file
+                name="activity_camera1"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_camera1.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="menu_camera1"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/menu_camera1.xml"
+                qualifiers=""
+                type="menu" />
         </source>
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/rs/release" />
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/generated/release" />

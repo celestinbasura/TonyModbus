@@ -84,7 +84,12 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         final ModBusPoint point = data.get(position);
         holder.textName.setText(point.getName());
 
-        holder.textTimer.setText(String.format("%02d:%02d", point.getTimerValue()/60,  point.getTimerValue()%60 ));
+        if(point.getTimerValue() < 3600){
+            holder.textTimer.setText(String.format("%02d:%02d", point.getTimerValue()/60,  point.getTimerValue()%60 ));
+        }else{
+            holder.textTimer.setText(String.format("%02d:%02d:%02d", point.getTimerValue()/3600, point.getTimerValue()%3600/60,  point.getTimerValue()%60 ));
+        }
+
 
 
 

@@ -56,6 +56,10 @@
             android:name="com.celeMC.tonymodbus.app.Activities.Garden"
             android:label="@string/title_activity_garden" >
         </activity>
+        <activity
+            android:name="com.celeMC.tonymodbus.app.Activities.Camera1"
+            android:label="@string/title_activity_camera1" >
+        </activity>
     </application>
 
 </manifest>

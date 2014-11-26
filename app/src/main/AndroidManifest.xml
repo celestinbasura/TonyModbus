@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -23,32 +23,36 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.InteriorPointActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.InteriorPointActivity"
             android:label="@string/title_activity_interior_point" >
         </activity>
         <activity
-            android:name=".Activities.ExteriorPointActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.ExteriorPointActivity"
             android:label="@string/title_activity_exterior_point" >
         </activity>
         <activity
-            android:name=".Activities.GroupPointActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.GroupPointActivity"
             android:label="@string/title_activity_group_point" >
         </activity>
         <activity
-            android:name=".Activities.Settings"
+            android:name="com.celeMC.tonymodbus.app.Activities.Settings"
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name=".Activities.AlarmsActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.AlarmsActivity"
             android:label="@string/title_activity_alarms" >
         </activity>
         <activity
-            android:name=".Activities.AllLightsOnActivity"
+            android:name="com.celeMC.tonymodbus.app.Activities.AllLightsOnActivity"
             android:label="@string/title_activity_all_lights_on" >
         </activity>
         <activity
-            android:name=".Activities.Garden"
+            android:name="com.celeMC.tonymodbus.app.Activities.Garden"
             android:label="@string/title_activity_garden" >
+        </activity>
+        <activity
+            android:name="com.celeMC.tonymodbus.app.Activities.Camera1"
+            android:label="@string/title_activity_camera1" >
         </activity>
     </application>
 

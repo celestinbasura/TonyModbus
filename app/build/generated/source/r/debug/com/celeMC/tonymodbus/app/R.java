@@ -55,62 +55,64 @@ public final class R {
         public static final int timer_icon_touched=0x7f020018;
     }
     public static final class id {
-        public static final int acs_880_txt=0x7f0b0012;
-        public static final int action_settings=0x7f0b0028;
-        public static final int btn_alarms=0x7f0b0009;
-        public static final int btn_all_active=0x7f0b000a;
-        public static final int btn_camera=0x7f0b000f;
-        public static final int btn_connect_command=0x7f0b000c;
-        public static final int btn_exterior=0x7f0b0007;
-        public static final int btn_groups=0x7f0b0008;
-        public static final int btn_info=0x7f0b0011;
-        public static final int btn_interior=0x7f0b0006;
-        public static final int btn_reserved=0x7f0b000b;
-        public static final int btn_save_settings=0x7f0b001c;
-        public static final int btn_status=0x7f0b0010;
-        public static final int btn_timer=0x7f0b001f;
-        public static final int edt_external_ip=0x7f0b0019;
-        public static final int edt_external_port=0x7f0b001a;
-        public static final int edt_external_ssid_name=0x7f0b001b;
-        public static final int edt_internal_ip1=0x7f0b0013;
-        public static final int edt_internal_ip2=0x7f0b0014;
-        public static final int edt_internal_ip3=0x7f0b0015;
-        public static final int edt_internal_ip4=0x7f0b0016;
-        public static final int edt_internal_port=0x7f0b0017;
-        public static final int img_state=0x7f0b001d;
-        public static final int listView=0x7f0b0026;
-        public static final int listView_exterior=0x7f0b0001;
-        public static final int listView_groups=0x7f0b0003;
-        public static final int listView_interior=0x7f0b0005;
-        public static final int marker=0x7f0b0023;
-        public static final int marker2=0x7f0b0025;
-        public static final int sentron_txt=0x7f0b0018;
-        public static final int status_page=0x7f0b0027;
-        public static final int txt_connstatus=0x7f0b000d;
-        public static final int txt_ext_points_heading=0x7f0b0000;
-        public static final int txt_fixed_timer=0x7f0b0020;
-        public static final int txt_grp_points_heading=0x7f0b0002;
-        public static final int txt_int_points_heading=0x7f0b0004;
-        public static final int txt_listname=0x7f0b0024;
-        public static final int txt_phone_ip=0x7f0b000e;
-        public static final int txt_pointname=0x7f0b001e;
+        public static final int acs_880_txt=0x7f0b0013;
+        public static final int action_settings=0x7f0b0029;
+        public static final int btn_alarms=0x7f0b000a;
+        public static final int btn_all_active=0x7f0b000b;
+        public static final int btn_camera=0x7f0b0010;
+        public static final int btn_connect_command=0x7f0b000d;
+        public static final int btn_exterior=0x7f0b0008;
+        public static final int btn_groups=0x7f0b0009;
+        public static final int btn_info=0x7f0b0012;
+        public static final int btn_interior=0x7f0b0007;
+        public static final int btn_reserved=0x7f0b000c;
+        public static final int btn_save_settings=0x7f0b001d;
+        public static final int btn_status=0x7f0b0011;
+        public static final int btn_timer=0x7f0b0020;
+        public static final int edt_external_ip=0x7f0b001a;
+        public static final int edt_external_port=0x7f0b001b;
+        public static final int edt_external_ssid_name=0x7f0b001c;
+        public static final int edt_internal_ip1=0x7f0b0014;
+        public static final int edt_internal_ip2=0x7f0b0015;
+        public static final int edt_internal_ip3=0x7f0b0016;
+        public static final int edt_internal_ip4=0x7f0b0017;
+        public static final int edt_internal_port=0x7f0b0018;
+        public static final int img_state=0x7f0b001e;
+        public static final int listView=0x7f0b0027;
+        public static final int listView_exterior=0x7f0b0002;
+        public static final int listView_groups=0x7f0b0004;
+        public static final int listView_interior=0x7f0b0006;
+        public static final int marker=0x7f0b0024;
+        public static final int marker2=0x7f0b0026;
+        public static final int sentron_txt=0x7f0b0019;
+        public static final int status_page=0x7f0b0028;
+        public static final int txt_connstatus=0x7f0b000e;
+        public static final int txt_ext_points_heading=0x7f0b0001;
+        public static final int txt_fixed_timer=0x7f0b0023;
+        public static final int txt_grp_points_heading=0x7f0b0003;
+        public static final int txt_int_points_heading=0x7f0b0005;
+        public static final int txt_listname=0x7f0b0025;
+        public static final int txt_phone_ip=0x7f0b000f;
+        public static final int txt_pointname=0x7f0b001f;
         public static final int txt_state=0x7f0b0022;
         public static final int txt_timervalue=0x7f0b0021;
+        public static final int web_view_cam1=0x7f0b0000;
     }
     public static final class layout {
         public static final int activity_alarms=0x7f030000;
         public static final int activity_all_lights_on=0x7f030001;
-        public static final int activity_exterior_point=0x7f030002;
-        public static final int activity_garden=0x7f030003;
-        public static final int activity_group_point=0x7f030004;
-        public static final int activity_interior_point=0x7f030005;
-        public static final int activity_list_activity_test=0x7f030006;
-        public static final int activity_main=0x7f030007;
-        public static final int activity_settings=0x7f030008;
-        public static final int list_item=0x7f030009;
-        public static final int point_list_on_off=0x7f03000a;
-        public static final int pointlist=0x7f03000b;
-        public static final int status_webview=0x7f03000c;
+        public static final int activity_camera1=0x7f030002;
+        public static final int activity_exterior_point=0x7f030003;
+        public static final int activity_garden=0x7f030004;
+        public static final int activity_group_point=0x7f030005;
+        public static final int activity_interior_point=0x7f030006;
+        public static final int activity_list_activity_test=0x7f030007;
+        public static final int activity_main=0x7f030008;
+        public static final int activity_settings=0x7f030009;
+        public static final int list_item=0x7f03000a;
+        public static final int point_list_on_off=0x7f03000b;
+        public static final int pointlist=0x7f03000c;
+        public static final int status_webview=0x7f03000d;
     }
     public static final class menu {
         public static final int alarms=0x7f0a0000;
@@ -122,7 +124,8 @@ public final class R {
         public static final int list_activity_new=0x7f0a0006;
         public static final int list_activity_test=0x7f0a0007;
         public static final int main=0x7f0a0008;
-        public static final int settings=0x7f0a0009;
+        public static final int menu_camera1=0x7f0a0009;
+        public static final int settings=0x7f0a000a;
     }
     public static final class string {
         public static final int action_connect=0x7f080000;
@@ -150,13 +153,14 @@ public final class R {
         public static final int tgl_btn=0x7f080016;
         public static final int title_activity_alarms=0x7f080017;
         public static final int title_activity_all_lights_on=0x7f080018;
-        public static final int title_activity_exterior_point=0x7f080019;
-        public static final int title_activity_garden=0x7f08001a;
-        public static final int title_activity_group_point=0x7f08001b;
-        public static final int title_activity_interior_point=0x7f08001c;
-        public static final int title_activity_list_activity_new=0x7f08001d;
-        public static final int title_activity_list_activity_test=0x7f08001e;
-        public static final int title_activity_settings=0x7f08001f;
+        public static final int title_activity_camera1=0x7f080019;
+        public static final int title_activity_exterior_point=0x7f08001a;
+        public static final int title_activity_garden=0x7f08001b;
+        public static final int title_activity_group_point=0x7f08001c;
+        public static final int title_activity_interior_point=0x7f08001d;
+        public static final int title_activity_list_activity_new=0x7f08001e;
+        public static final int title_activity_list_activity_test=0x7f08001f;
+        public static final int title_activity_settings=0x7f080020;
     }
     public static final class style {
         /**  Customize your theme here. 
