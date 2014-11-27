@@ -84,8 +84,8 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
         final ModBusPoint point = data.get(position);
         holder.textName.setText(point.getName());
 
-        if(point.getTimerValue() < 3600){
-            holder.textTimer.setText(String.format("%02d:%02d", point.getTimerValue()/60,  point.getTimerValue()%60 ));
+        if(point.getTimerValue() == 00){
+            holder.textTimer.setText(" ");
         }else{
             holder.textTimer.setText(String.format("%02d:%02d:%02d", point.getTimerValue()/3600, point.getTimerValue()%3600/60,  point.getTimerValue()%60 ));
         }
@@ -114,7 +114,7 @@ public class PointCustomAdapter extends ArrayAdapter<ModBusPoint> {
 
         if(point.getTimerValue() == 0){
 
-            holder.btnEditTimer.setBackgroundResource(R.drawable.timer_icon_off);
+            holder.btnEditTimer.setBackgroundResource(R.drawable.timer_icon);
         }else
         if(point.getTimerValue() == 9999){
 

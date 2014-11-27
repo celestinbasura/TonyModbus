@@ -471,6 +471,11 @@ Never
                 path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/menu/menu_camera1.xml"
                 qualifiers=""
                 type="menu" />
+            <file
+                name="cam_dialog"
+                path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/cam_dialog.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/rs/debug" />
         <source path="/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/generated/res/generated/debug" />

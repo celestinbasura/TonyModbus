@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.celeMC.tonymodbus.app.Constants;
 import com.celeMC.tonymodbus.app.R;
 
+import java.lang.reflect.Field;
+
 public class Settings extends Activity {
 
 
@@ -22,6 +24,8 @@ public class Settings extends Activity {
     public static final String externalIP = "extIP";
     public static final String externalPort = "extPort";
     public static final String externalSSID = "extSSID";
+    public static final String cameraUser = "camUser";
+    public static final String cameraPass = "camPass";
     Button btnSave;
     EditText txtinternalIP1;
     EditText txtinternalIP2;
@@ -31,6 +35,8 @@ public class Settings extends Activity {
     EditText txtexternalIp;
     EditText txtexternalPort;
     EditText txtexternalSSID;
+    EditText txtCameraUser;
+    EditText txtCameraPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,9 @@ public class Settings extends Activity {
         txtexternalPort = (EditText) findViewById(R.id.edt_external_port);
         txtexternalSSID = (EditText) findViewById(R.id.edt_external_ssid_name);
 
+        txtCameraUser = (EditText) findViewById(R.id.edt_camera_login);
+        txtCameraPass = (EditText) findViewById(R.id.edt_camera_pass);
+
         btnSave = (Button) findViewById(R.id.btn_save_settings);
 
 
@@ -70,6 +79,9 @@ public class Settings extends Activity {
         txtexternalIp.setText(pref.getString(externalIP, Constants.EXT_DEFAULT_IP));
         txtexternalPort.setText(pref.getInt(externalPort, Constants.EXT_DEFAULT_PORT) + "");
         txtexternalSSID.setText(pref.getString(externalSSID, Constants.EXT_DEFAULT_SSID));
+
+        txtCameraUser.setText(pref.getString(cameraUser, Constants.CAM_DEFAULT_USER));
+        txtCameraPass.setText(pref.getString(cameraPass, Constants.CAM_DEFAULT_PASS));
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +102,8 @@ public class Settings extends Activity {
                 editor.putString(externalIP, txtexternalIp.getText().toString());
                 editor.putInt(externalPort, Integer.valueOf(txtexternalPort.getText().toString()));
                 editor.putString(externalSSID, txtexternalSSID.getText().toString());
+                editor.putString(cameraUser, txtCameraUser.getText().toString());
+                editor.putString(cameraPass, txtCameraPass.getText().toString());
 
                 editor.commit();
                 Toast.makeText(getBaseContext(), "Saved", Toast.LENGTH_SHORT).show();

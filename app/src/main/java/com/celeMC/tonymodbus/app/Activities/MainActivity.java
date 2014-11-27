@@ -103,6 +103,7 @@ public class MainActivity extends Activity {
 
         super.onCreate(savedInstanceState);
 
+
         clearNotification();
         setContentView(R.layout.activity_main);
         sharedPreferences = getApplicationContext().getSharedPreferences(Constants.PREF, 0); // 0 - for private mode
@@ -148,6 +149,7 @@ public class MainActivity extends Activity {
         btnReserved = (Button) findViewById(R.id.btn_reserved);
 
 
+        btnConnect.setClickable(false);
 
         wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         connMgr = (ConnectivityManager) this.getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
@@ -300,34 +302,6 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-
-
-//
-//                Intent intent = new Intent(MainActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//
-//                PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//
-//                mNotificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-//
-//                NotificationCompat.Builder mBuilder =
-//                        new NotificationCompat.Builder(getApplicationContext())
-//                                .setSmallIcon(R.drawable.light_bulb)
-//                                .setPriority(Notification.PRIORITY_HIGH)
-//                                .setLights(0xff0000ff, 2000, 2000)
-//                                .setContentTitle("TonyMODBUS Demo")
-//                                .setStyle(new NotificationCompat.BigTextStyle().bigText("This is demo for alarms"))
-//                                .setContentText("someyhing")
-//                                .setTicker("Alarm activated")
-//                                .setAutoCancel(true)
-//
-//                                .setSound(android.provider.Settings.System.DEFAULT_NOTIFICATION_URI);
-//
-//
-//                mBuilder.setContentIntent(contentIntent);
-//                mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-//
-//
                 Log.d("cele", "clickled");
 
                 if (Connection.conn.isConnected()) {
@@ -359,7 +333,6 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-                requestWindowFeature(Window.FEATURE_NO_TITLE);
                 alert.setTitle("Server status");
 
                 WebView wv = new WebView(MainActivity.this);
@@ -410,84 +383,251 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-               Dialog dialog = new Dialog(MainActivity.this);
+                final Dialog dialog = new Dialog(MainActivity.this);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-                Display display = getWindowManager().getDefaultDisplay();
-                Point size = new Point();
-                display.getSize(size);
-                int width = size.x;
-                int height = size.y;
-
-
-
-                WindowManager.LayoutParams a = dialog.getWindow().getAttributes();
-
-//      dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-                a.dimAmount = 0;
-                dialog.getWindow().setAttributes(a);
-
                 dialog.setCancelable(true);
-                dialog.getWindow().setLayout(3000, 10000);
 
 
-                WebView wv = new WebView(MainActivity.this);
-
-                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-                lp.copyFrom(dialog.getWindow().getAttributes());
-                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-                lp.height = (height / 2 + 10);
 
 
-                String currentIP;
-
-
-                if (isHome()) {
-
-                    currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
-
-
-                } else {
-                    currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
-
-
-                }
-
-              //  http://afmaher.duckdns.org:8082/mobile.htm
-
-
-                dialog.setContentView(wv);
+                dialog.setContentView(R.layout.cam_dialog);
                 dialog.show();
-                dialog.getWindow().setAttributes(lp);
 
-                wv.getSettings().setJavaScriptEnabled(true);
-                //camOneView.setHttpAuthUsernamePassword("http://192.168.1.2/", null, "admin", null);
-                wv.getSettings().setJavaScriptEnabled(true);
+                Button cam1 = (Button) dialog.findViewById(R.id.btn_dialog_cam1);
+                Button cam2 = (Button) dialog.findViewById(R.id.btn_dialog_cam2);
+                Button cam3 = (Button) dialog.findViewById(R.id.btn_dialog_cam3);
+                Button cam4 = (Button) dialog.findViewById(R.id.btn_dialog_cam4);
+
+                cam1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        dialog.cancel();
+                        Dialog dialogCam1 = new Dialog(MainActivity.this);
+                        dialogCam1.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        Display display = getWindowManager().getDefaultDisplay();
+                        Point size = new Point();
+                        display.getSize(size);
+                        int width = size.x;
+                        int height = size.y;
+                        WindowManager.LayoutParams a = dialogCam1.getWindow().getAttributes();
+                        a.dimAmount = 0;
+                        dialogCam1.getWindow().setAttributes(a);
+                        dialogCam1.setCancelable(true);
+                        dialogCam1.getWindow().setLayout(3000, 10000);
+                        WebView wv = new WebView(MainActivity.this);
+                        dialogCam1.setContentView(wv);
+                        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                        lp.copyFrom(dialogCam1.getWindow().getAttributes());
+                        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                        lp.height = (height / 2 + 10);
+                        String currentIP;
+                        if (isHome()) {
+
+                            currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
+
+                        } else {
+                            currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
+
+                        }
+
+                        Log.d("tag", "showing");
+                        dialogCam1.show();
+                        dialogCam1.getWindow().setAttributes(lp);
+
+                        wv.getSettings().setJavaScriptEnabled(true);
+                        wv.setInitialScale( (int)(width / 6.85));
+
+                        wv.getSettings().setLoadWithOverviewMode(true);
+                        wv.getSettings().setBuiltInZoomControls(true);
+                        wv.getSettings().setUseWideViewPort(true);
+                        wv.setWebViewClient(new MyWebViewClient());
+
+                        wv.getSettings().setPluginState(WebSettings.PluginState.ON);
+                        Log.d("tag", "url load");
+
+
+                        wv.loadUrl( "http://www." + currentIP + ":8082/mobile.htm");
+                    }
+                });
+
+
+                cam2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        dialog.cancel();
+                        Dialog dialogCam2 = new Dialog(MainActivity.this);
+                        dialogCam2.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        Display display = getWindowManager().getDefaultDisplay();
+                        Point size = new Point();
+                        display.getSize(size);
+                        int width = size.x;
+                        int height = size.y;
+                        WindowManager.LayoutParams a = dialogCam2.getWindow().getAttributes();
+                        a.dimAmount = 0;
+                        dialogCam2.getWindow().setAttributes(a);
+                        dialogCam2.setCancelable(true);
+                        dialogCam2.getWindow().setLayout(3000, 10000);
+                        WebView wv = new WebView(MainActivity.this);
+                        dialogCam2.setContentView(wv);
+                        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                        lp.copyFrom(dialogCam2.getWindow().getAttributes());
+                        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                        lp.height = (height / 2 + 10);
+                        String currentIP;
+                        if (isHome()) {
+
+                            currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
+
+                        } else {
+                            currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
+
+                        }
+
+                        Log.d("tag", "showing");
+                        dialogCam2.show();
+                        dialogCam2.getWindow().setAttributes(lp);
+
+                        wv.getSettings().setJavaScriptEnabled(true);
+                        wv.setInitialScale( (int)(width / 6.85));
+
+                        wv.getSettings().setLoadWithOverviewMode(true);
+                        wv.getSettings().setBuiltInZoomControls(true);
+                        wv.getSettings().setUseWideViewPort(true);
+                        wv.setWebViewClient(new MyWebViewClient());
+
+                        wv.getSettings().setPluginState(WebSettings.PluginState.ON);
+                        Log.d("tag", "url load");
+
+
+                        wv.loadUrl( "http://www." + currentIP + ":8083/mobile.htm");
+
+
+                    }
+                });
 
 
 
 
-                    wv.setInitialScale( (int)(width / 6.85));
+                cam3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
 
-               //
-                wv.getSettings().setLoadWithOverviewMode(true);
-                wv.getSettings().setBuiltInZoomControls(true);
-                wv.getSettings().setUseWideViewPort(true);
+                        dialog.cancel();
+                        Dialog dialogCam3 = new Dialog(MainActivity.this);
+                        dialogCam3.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        Display display = getWindowManager().getDefaultDisplay();
+                        Point size = new Point();
+                        display.getSize(size);
+                        int width = size.x;
+                        int height = size.y;
+                        WindowManager.LayoutParams a = dialogCam3.getWindow().getAttributes();
+                        a.dimAmount = 0;
+                        dialogCam3.getWindow().setAttributes(a);
+                        dialogCam3.setCancelable(true);
+                        dialogCam3.getWindow().setLayout(3000, 10000);
+                        WebView wv = new WebView(MainActivity.this);
+                        dialogCam3.setContentView(wv);
+                        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                        lp.copyFrom(dialogCam3.getWindow().getAttributes());
+                        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                        lp.height = (height / 2 + 10);
+                        String currentIP;
+                        if (isHome()) {
 
-                wv.setWebViewClient(new MyWebViewClient());
+                            currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
+
+                        } else {
+                            currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
+
+                        }
+
+                        Log.d("tag", "showing");
+                        dialogCam3.show();
+                        dialogCam3.getWindow().setAttributes(lp);
+
+                        wv.getSettings().setJavaScriptEnabled(true);
+                        wv.setInitialScale( (int)(width / 6.85));
+
+                        wv.getSettings().setLoadWithOverviewMode(true);
+                        wv.getSettings().setBuiltInZoomControls(true);
+                        wv.getSettings().setUseWideViewPort(true);
+                        wv.setWebViewClient(new MyWebViewClient());
+
+                        wv.getSettings().setPluginState(WebSettings.PluginState.ON);
+                        Log.d("tag", "url load");
 
 
-                wv.getSettings().setPluginState(WebSettings.PluginState.ON);
-                wv.loadUrl( "http://www." + currentIP + ":8082/mobile.htm");
+                        wv.loadUrl( "http://www." + currentIP + ":8084/mobile.htm");
 
 
-           }
+                    }
+                });
+
+
+
+                cam4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        dialog.cancel();
+                        Dialog dialogCam4 = new Dialog(MainActivity.this);
+                        dialogCam4.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        Display display = getWindowManager().getDefaultDisplay();
+                        Point size = new Point();
+                        display.getSize(size);
+                        int width = size.x;
+                        int height = size.y;
+                        WindowManager.LayoutParams a = dialogCam4.getWindow().getAttributes();
+                        a.dimAmount = 0;
+                        dialogCam4.getWindow().setAttributes(a);
+                        dialogCam4.setCancelable(true);
+                        dialogCam4.getWindow().setLayout(3000, 10000);
+                        WebView wv = new WebView(MainActivity.this);
+                        dialogCam4.setContentView(wv);
+                        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                        lp.copyFrom(dialogCam4.getWindow().getAttributes());
+                        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                        lp.height = (height / 2 + 10);
+                        String currentIP;
+                        if (isHome()) {
+
+                            currentIP = sharedPreferences.getString(Settings.internalIP, Constants.DEFAULT_IP);
+
+                        } else {
+                            currentIP = sharedPreferences.getString(Settings.externalIP, Constants.EXT_DEFAULT_IP);
+
+                        }
+
+                        Log.d("tag", "showing");
+                        dialogCam4.show();
+                        dialogCam4.getWindow().setAttributes(lp);
+
+                        wv.getSettings().setJavaScriptEnabled(true);
+                        wv.setInitialScale( (int)(width / 6.85));
+
+                        wv.getSettings().setLoadWithOverviewMode(true);
+                        wv.getSettings().setBuiltInZoomControls(true);
+                        wv.getSettings().setUseWideViewPort(true);
+                        wv.setWebViewClient(new MyWebViewClient());
+
+                        wv.getSettings().setPluginState(WebSettings.PluginState.ON);
+                        Log.d("tag", "url load");
+
+
+                        wv.loadUrl( "http://www." + currentIP + ":8085/mobile.htm");
+
+
+                    }
+                });
+
+
+
+
+            }
         });
-
-
-
-
 
     }
 
@@ -509,8 +649,6 @@ public class MainActivity extends Activity {
 
                         if(Connection.conn != null){
 
-
-
                         if(Connection.conn.isConnected()){
                             readRegs();
                         }
@@ -522,12 +660,9 @@ public class MainActivity extends Activity {
                     }
                 }).start();
 
-
             }
         };
         tm.scheduleAtFixedRate(readRegs, (long) 500, (long) 2000);
-
-
 
     }
 
@@ -669,11 +804,11 @@ public class MainActivity extends Activity {
                         }
 
                         InetAddress address = null;
-                        try {
+                       try {
 
                             address = InetAddress.getByName(currentIP);
                             //address = InetAddress.getByName("AFMaher.duckdns.org");
-                        } catch (UnknownHostException e) {
+                       } catch (UnknownHostException e) {
                             e.printStackTrace();
                         }
 
@@ -980,38 +1115,7 @@ public class MainActivity extends Activity {
 
     }
 
-//    @Override
-//    public void onBackPressed() {
-//
-//        if(!Connection.conn.isConnected()){
-//            tm.cancel();
-//            readRegs.cancel();
-//            closeConnection();
-//            tm.cancel();
-//            readRegs.cancel();
-//            finish();
-//
-//        }else{
-//
-//
-//            new AlertDialog.Builder(this).setTitle("Exit Application")
-//                    .setMessage("Connection will be dropped if active, \nare you sure?")
-//                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//
-//                            tm.cancel();
-//                            readRegs.cancel();
-//                            closeConnection();
-//                            tm.cancel();
-//                            readRegs.cancel();
-//                            finish();
-//                        }
-//                    }).setNegativeButton("No", null).show();
-//
-//        }
-//
-//    }
+
 
     private void clearNotification()
     {
@@ -1048,12 +1152,18 @@ public class MainActivity extends Activity {
     }
 
 
-    class MyWebViewClient extends WebViewClient {
+  public  class MyWebViewClient extends WebViewClient {
         @Override
         public void onReceivedHttpAuthRequest(WebView view,
                                               HttpAuthHandler handler, String host, String realm) {
 
-            handler.proceed("admin", "");
+            String user = sharedPreferences.getString(Settings.cameraUser, Constants.CAM_DEFAULT_USER);
+
+            String pass = sharedPreferences.getString(Settings.cameraPass, Constants.CAM_DEFAULT_PASS);
+            Log.d("Tag", "user: " + user + " pass " + pass);
+            handler.proceed(user, pass);
+
+
 
         }
     }
