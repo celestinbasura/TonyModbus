@@ -372,4 +372,4 @@ android:layout_gravity="center"
 android:gravity="center"
 android:background="@drawable/button_green_sel"
 android:textSize="25sp"/>
-</LinearLayout><!-- From: file:/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/activity_settings.xml -->
+</LinearLayout><!-- From: file:/C:/Users/Celestin/Documents/TonyModbus/app/src/main/res/layout/activity_settings.xml -->
