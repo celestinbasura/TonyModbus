@@ -9,4 +9,4 @@
         android:layout_height="match_parent"
         android:id="@+id/status_page"
         android:layout_gravity="center_horizontal" />
-<!-- From: file:/C:/Users/Celestin/Documents/TonyModbus/app/src/main/res/layout/status_webview.xml -->
+<!-- From: file:/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/src/main/res/layout/status_webview.xml -->

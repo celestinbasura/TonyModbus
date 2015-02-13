@@ -1,0 +1,4 @@
+/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/intermediates/classes/debug
+/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/intermediates/pre-dexed/debug/jamod-1.2-SNAPSHOT-16809d071816c713b93d4dc180d1c6a0676f2117.jar
+/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/intermediates/pre-dexed/debug/google-play-services-f9aa99925819c1c0f643b19152355c27a1110188.jar
+/Users/celestinbasura/AndroidStudioProjects/TonyModbus/app/build/intermediates/pre-dexed/debug/android-support-v4-20df5a0a9176b0814c8819c348ac453f9f65b3a5.jar
